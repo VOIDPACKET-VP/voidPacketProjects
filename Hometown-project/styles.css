@@ -1,0 +1,115 @@
+/**
+
+Role	        Hex Code	                 Usage
+Primary Dark	#2F4F4F (Slate Gray)	     Headers, footers, strong accents – like mountain stone
+Primary Light	#F5F5DC (Beige)	Background   like desert sand or traditional walls
+Accent 1 (Warm)	#B35422 (Terracotta)	     Buttons, links – like Moroccan clay & pottery
+Accent 2 (Cool)	#4682B4 (Steel Blue)	     Highlights – like sky and mountain streams
+Text/Natural	#3E3E3E (Charcoal)	         Body text – readable and earthy
+
+*/
+
+body {
+    margin: 0;
+    text-align: center;
+    background-image: url("images/ait.jpg");
+    
+}
+
+#hero {
+    font-family: "Merriweather", serif;
+    color: #F5F5DC;
+    font-style: italic;
+    text-shadow: 0 0 15px black;
+    position: relative;
+    top: 35px;
+    
+}
+#activities {
+    margin: 10px 0;
+    backdrop-filter: blur(10px);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 90%, transparent 100%);
+    position: relative;
+    top: 70px;
+}
+#footer {
+    position: relative;
+    top: 150px;
+}
+
+
+
+
+
+
+.title_1 {
+    height: 25px;
+    font-weight: 800;
+}
+.desc_1 {
+    font-weight: 700;
+    height: 45px;
+    text-shadow: 0 0 5px black;
+}
+
+.title_2 {
+    color: #2F4F4F;
+    font-family: "Merriweather", serif;
+    text-shadow: 0 0 15px black;
+    font-weight: 800;
+    position: relative;
+    top: 10px;
+}
+
+#pic_activities {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+#atfl {
+    height: 60px;
+}
+#region {
+    height: 60px;
+}
+
+img {
+    width: 100px;
+    border: none;
+    border-radius: 200px;
+}
+
+#desc_2 {
+    display: flex;
+    flex-direction: row;
+    font-family: "Open Sans", sans-serif;
+    color: #4682B4;
+    font-weight: 800;
+    text-shadow: 0 0 3px black;
+    position: relative;
+    top: -5px;
+}
+
+#desc_3 {
+    display: flex;
+    margin: 0 40px;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Merriweather", serif;
+    font-style: italic;
+    text-shadow: 0 0 5px black;
+    color: aliceblue;
+    text-indent: 10px;
+}
+
+#socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.35);
+    position: relative;
+    top: -40px;
+    left: -113px;
+}
+
