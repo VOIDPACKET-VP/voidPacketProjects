@@ -6,6 +6,8 @@ body {
     flex-direction: column;
     background-image: url(assets/mtn.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
     box-shadow: inset 0px 0px 85px rgba(0, 0, 0, 0.9);
     pointer-events: all;
 }
@@ -39,6 +41,21 @@ body {
     backdrop-filter: blur(1px);
     font-weight: 400;
     color: whitesmoke;
+    transform: scale(1);
+    transition: ease-in-out 0.1s;
+}
+.main-func input {
+    transition: ease-in-out 0.1s;
+    width: 100px;
+}
+
+.main-func input:hover {
+    transition: ease-in-out 0.1s;
+    width: 110px;
+}
+.main-func button:hover {
+    transition: ease-in-out 0.1s;
+    transform: scale(1.1);
 }
 
 .main-func input {
@@ -69,6 +86,8 @@ body {
     height: 70%;
     min-width: 100%;
     min-height: 70%;
+    max-width: 100%;
+    max-height: 70%;
 }
 
 .result h3 {
@@ -78,15 +97,26 @@ body {
     text-shadow:  0 0 10px black;
 }
 
+.result h4 {
+    text-align: center;
+}
+
+.res-mass h3 {
+    position: relative;
+    left: 30px;
+}
+
 .res-length {
     background-color: rgb(146, 108, 21, 0.3);
-    padding: 5px 50px;
+    padding: 5px 51px;
     margin-bottom: 5px;
     border: 1px solid;
     margin-left: 10px;
     margin-right: 10px;
     min-height: 25%;
     min-width: 70%;
+    max-height: 25%;
+    max-width: 70%;
 
 }
 
@@ -99,17 +129,21 @@ body {
     margin-right: 10px;
     min-height: 25%;
     min-width: 70%;
+    max-height: 25%;
+    max-width: 70%;
 
 }
 
 .res-mass {
     background-color: rgb(146, 108, 21, 0.3);
-    padding: 5px 50px;
+    padding: 5px 18px;
     border: 1px solid;
     margin-left: 10px;
     margin-right: 10px;
     min-height: 25%;
     min-width: 70%;
+    max-height: 25%;
+    max-width: 84%;
     
 }
 
@@ -118,7 +152,7 @@ body {
     transform: scale(0.8);
     text-shadow: 0 0 15px black;
     color: #ffcb69;
-
+    min-width: 50px;
 }
 
 .res-volume h4 {
@@ -126,7 +160,7 @@ body {
     transform: scale(0.8);
     text-shadow: 0 0 15px black;
     color: #ffcb69;
-
+    min-width: 50px;
 }
 
 .res-mass h4 {
@@ -134,5 +168,6 @@ body {
     transform: scale(0.8);
     text-shadow: 0 0 15px black;
     color: #ffcb69;
-
+    min-width: 10px;
+    margin: 10px 10px;
 }
