@@ -1,0 +1,138 @@
+body {
+    margin: 0px;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(assets/mtn.jpg);
+    background-size: cover;
+    box-shadow: inset 0px 0px 85px rgba(0, 0, 0, 0.9);
+    pointer-events: all;
+}
+
+.main {
+    position: relative;
+    bottom: -150px;
+}
+
+.main-func {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-heading h2 {
+    color: whitesmoke;
+    font-weight: 700;
+    border-bottom: 2px solid #ffcb69;
+    text-align: center;
+    
+}
+
+.main-func button {
+    margin: 10px;
+    padding: 7px 15px;
+    border: 2px solid #ffcb69;
+    border-radius: 2px;
+    background-color: rgba(200, 150, 100, 0.05);
+    backdrop-filter: blur(1px);
+    font-weight: 400;
+    color: whitesmoke;
+}
+
+.main-func input {
+    height: 50px;
+    width: 95px;
+    background-color: transparent;
+    border: 2px solid #ffcb69;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: 800;
+    font-size: xx-large;
+    color: whitesmoke;
+    background-color: rgba(200, 150, 100, 0.05);
+    backdrop-filter: blur(1px);
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5px;
+    background-color: rgba(200, 150, 100, 0.05);
+    backdrop-filter: blur(1px);
+    border: 2px solid #ffcb69;
+    border-radius: 1px;
+    color: whitesmoke;
+    height: 70%;
+    min-width: 100%;
+    min-height: 70%;
+}
+
+.result h3 {
+    font-size: large;
+    font-weight: 500;
+    position: relative;
+    text-shadow:  0 0 10px black;
+}
+
+.res-length {
+    background-color: rgb(146, 108, 21, 0.3);
+    padding: 5px 50px;
+    margin-bottom: 5px;
+    border: 1px solid;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: 25%;
+    min-width: 70%;
+
+}
+
+.res-volume {
+    background-color: rgb(146, 108, 21, 0.3);
+    padding: 5px 50px;
+    margin-bottom: 5px;
+    border: 1px solid;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: 25%;
+    min-width: 70%;
+
+}
+
+.res-mass {
+    background-color: rgb(146, 108, 21, 0.3);
+    padding: 5px 50px;
+    border: 1px solid;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: 25%;
+    min-width: 70%;
+    
+}
+
+.res-length h4 {
+    font-size: smaller;
+    transform: scale(0.8);
+    text-shadow: 0 0 15px black;
+    color: #ffcb69;
+
+}
+
+.res-volume h4 {
+    font-size: smaller;
+    transform: scale(0.8);
+    text-shadow: 0 0 15px black;
+    color: #ffcb69;
+
+}
+
+.res-mass h4 {
+    font-size: smaller;
+    transform: scale(0.8);
+    text-shadow: 0 0 15px black;
+    color: #ffcb69;
+
+}

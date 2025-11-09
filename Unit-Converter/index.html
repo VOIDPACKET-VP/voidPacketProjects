@@ -1,8 +1,39 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="main">
+            <div class="hero-heading">
+                <h2>Metric/Imperial Unit Converter</h2>
+                <div class="main-func"> 
+                    <input id="num-convert" type="text">
+                    <button id="conv-btn">Convert</button>
+                </div>   
+            </div>
+
+            <div class="result">
+
+                <div class="res-length">
+                    <h3>Length (Meter/Feet)</h3>
+                    <h4 id="con-length"></h4>
+                </div>
+
+                <div class="res-volume">
+                    <h3>Volume (Liters/Gallons)</h3>
+                    <h4 id="con-volume"></h4>
+                </div>
+
+                <div class="res-mass">
+                    <h3>Mass (Kilograms/Pounds)</h3>
+                    <h4 id="con-mass"></h4>
+                </div> 
+
+            </div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>
