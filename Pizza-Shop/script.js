@@ -3,6 +3,11 @@ import menuArray from "./data"
 const orderMenu = document.getElementById('container')
 const order = document.getElementById('order')
 const total = document.getElementById('total-price')
+const checkoutBtn = document.getElementById("checkout-btn")
+const modal = document.getElementById('checkout-modal')
+const closeBtn = document.querySelector('.close')
+const checkoutForm = document.getElementById('checkout-form')
+const confirmationMessage = document.getElementById('order-confirmation')
 
 menuArray.forEach(food => {
     orderMenu.innerHTML += `
@@ -31,12 +36,17 @@ orderMenu.addEventListener('click', function(e){
 let cart = []
 
 function addToCart(id, price, name){
-    cart.push({
+    const food = {
         id: id,
         name: name,
         price: price
-    })
-    render()  
+    }
+    if (!cart.find(item => item.id === id)){
+        cart.push(food)
+    } else (
+        alert("Item already in cart")
+    )
+    render()
 }
 
 function render(){
@@ -44,7 +54,7 @@ function render(){
     
     cart.forEach(item => {
         order.innerHTML += `
-            <h4>${item.name} <button class="remove-btn" data-id="${item.id}">remove</button> <p>$${item.price}</p> </h4>
+            <h4 id="${item.id}">${item.name} <button class="remove-btn" data-id="${item.id}" data-price="${item.price}">remove</button> <p>$${item.price}</p> </h4>
         `})
         
     updateTotal()
@@ -53,14 +63,59 @@ function render(){
 let totalPrice = 0
 
 function updateTotal(){
-    cart.forEach(item =>{
-        totalPrice += item.id
-        total.innerHTML = `<p>$${totalPrice}</p>`
-    })
+    totalPrice = cart.reduce((sum, item) => sum + item.price, 0)   
+    total.innerHTML = `Total price:<p>$${totalPrice}</p>`
+
 }
 
 order.addEventListener('click', function(e){
     if (e.target.classList.contains('remove-btn')){
+        const foodId = e.target.dataset.id
         
+        removeFromCart(foodId)
     }
 })
+
+function removeFromCart(id){
+    cart = cart.filter(item => id !== item.id)
+    render()
+}
+
+checkoutBtn.addEventListener('click', function(){
+    if (cart.length === 0){
+        alert('Your cart is empty')
+        return
+    }
+    modal.classList.remove('hidden')
+})
+
+closeBtn.addEventListener('click', function(){
+    modal.classList.add('hidden')
+})
+
+checkoutForm.addEventListener('submit', function(e){
+    e.preventDefault()
+    
+    const name = document.getElementById('name').value
+    const email = document.getElementById('email').value
+    const address = document.getElementById('address').value
+    
+    if (!name || !email || !address){
+        alert('All forms must be filled')
+        return
+    }
+    processOrder(name)
+})
+
+function processOrder(name){
+    console.log(`Confirming email for : ${name}`)
+    modal.classList.add('hidden')
+    confirmationMessage.classList.remove('hidden')
+    
+    setTimeout(()=>{
+        confirmationMessage.classList.add('hidden')
+        checkoutForm.reset()
+        cart = []
+        render()
+    }, 3000)
+}
