@@ -1,24 +1,27 @@
+// Reached minute 00:11:21
+
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <math.h>
+#include <stdbool.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
-int main(){
+// The main decoding function signatures
 
-    int age = 0;
-    float gpa = 0.0f;
-    char grade = '\0';
-    char name[30] = "";
+void base64_encode(const char *input, const unsigned long input_length, char *output);
+void base64_decode(const char *input, const unsigned long input_length, char *output);
 
-    printf("Enter your age, gpa, grade and name :\n");
-    scanf("%d", &age);
-    scanf("%f", &gpa);
-    scanf(" %c", &grade);
-    getchar();
-    fgets(name, sizeof(name), stdin);
+// Main code 
+char *base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-    printf("%d\n", age);
-    printf("%.2f\n", gpa);
-    printf("%c\n", grade);
-    printf("%s\n", name);
+void base64_encode(const char *input, const unsigned long input_length, char *output){
 
-    return 0;
+
 }
+void base64_decode(const char *input, const unsigned long input_length, char *output){
+
+
+}
+
