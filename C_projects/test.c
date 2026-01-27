@@ -141,3 +141,94 @@
 //     return 0;
 // }
 
+// 112A - Petya and Strings
+// #include <stdio.h>
+// #include <string.h>
+// #include <ctype.h>
+// int main(){
+//     char string1[101], string2[101];
+
+//     scanf("%s", string1);
+//     scanf("%s", string2);
+//     for (int i = 0; string1[i] != '\0'; i++) string1[i] = tolower(string1[i]);
+//     for (int i = 0; string2[i] != '\0'; i++) string2[i] = tolower(string2[i]);
+
+//     int result = strcmp(string1, string2);
+
+//     printf("%d", result == 0 ? 0 : result > 0 ? 1 : -1);
+
+//     return 0;
+// }
+
+// 236A - Boy or Girl
+// #include <stdio.h>
+// #include <string.h>
+// int hasRepeatedChars(const char* str) {
+//     int seen[26] = {0}; 
+//     int count = 0;
+//     for (int i = 0; str[i]; i++) {
+//         int currentChar = str[i] - 'a';
+//         if (seen[currentChar] == 0) {
+//             seen[currentChar] = 1;
+//             count ++;
+//         }
+//     }
+//     return count; 
+// }
+// int main(){
+//     char string[101];
+//     scanf("%s", string);
+//     int newResult = hasRepeatedChars(string);
+//     printf("%s", newResult % 2 == 0 ? "CHAT WITH HER!" : "IGNORE HIM!");
+//     return 0;
+// }
+
+// 339A - Helpful Maths
+// #include <stdio.h>
+// #include <stdlib.h>
+// int compare(const void *a, const void *b){
+//     int int_a = *(int*)a;
+//     int int_b = *(int*)b;
+
+//     if (int_a > int_b) return 1;
+//     if (int_a < int_b) return -1;
+
+//     return 0;
+// }
+// int main(){
+//     char string[101];
+//     int sorted[101];
+//     int j = 0;
+
+//     scanf("%s", string);
+    
+//     for (int i = 0; string[i]; i++){
+//         if (string[i] != '+'){
+//             sorted[j] = string[i];
+//             j++;
+//         } 
+//     }
+
+//     qsort(sorted, j, sizeof(int), compare);
+
+//     for (int i = 0; i < j; i++){
+//         printf("%c", sorted[i]);
+//         if (i < j - 1){
+//             printf("+");
+//         }
+//     }
+
+//     return 0;
+// }
+
+// 617A - Elephant
+// #include <stdio.h>
+// #include <math.h>
+// int main(){
+//     int x;
+//     scanf("%d", &x);
+//     float num = (float)x/5;  
+//     float steps = ceil(num);
+//     printf("%d", (int)steps);    
+//     return 0;
+// }
