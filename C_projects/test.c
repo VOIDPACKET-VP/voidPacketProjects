@@ -232,3 +232,101 @@
 //     printf("%d", (int)steps);    
 //     return 0;
 // }
+
+// 118A - String Task 
+// #include <stdio.h>
+// #include <ctype.h>
+// int main(){
+//     char string[101], sorted[101];
+//     int j = 0;
+//     scanf("%s", string);
+    
+//     for (int i = 0; string[i] != '\0'; i++) string[i] = tolower(string[i]);
+
+//     for (int i = 0; string[i]; i++){
+//         if (string[i] != 'a' && string[i] != 'o' && string[i] != 'y' && string[i] != 'e' && string[i] != 'u' && string[i] != 'i'){
+//             sorted[j] = string[i];
+//             j++;
+//         } 
+//     }
+
+//     for (int i = 0; i < j; i++){
+//         printf(".%c", sorted[i]);
+//     }
+
+//     return 0;
+// }
+
+// 69A - Young Physicist
+// #include <stdio.h>
+// int main(){
+//     int n, x,y,z, X = 0,Y = 0,Z = 0;
+//     scanf("%d", &n);
+
+//     for (int i = 0; i < n; i++){
+//         scanf("%d %d %d", &x, &y, &z);
+//         X += x;
+//         Y += y;
+//         Z += z;
+//     }
+
+//     if (X == 0 && Y == 0 && Z == 0){
+//         printf("YES");
+//     } else {
+//         printf("NO");
+//     }
+    
+//     return 0;
+// }
+
+// 96A - Football
+// #include <stdio.h>
+// #include <string.h>
+// int main(){
+//     char string[101];
+//     int lvl = 1;
+//     scanf("%s", string);
+
+//     for (int i = 0; i < strlen(string) - 1; i++){
+//         if (string[i] == string[i+1]){
+//             lvl += 1;
+//             if (lvl >= 7){
+//                 printf("YES");
+//                 break;
+//             }
+//         } else {
+//             lvl = 1;
+//         }        
+//     }
+//     if (lvl < 7) printf("NO");
+//     return 0;
+// }
+
+// 58A - Chat room
+// #include <stdio.h>
+// #include <ctype.h>
+// int main(){
+//     char s[101];
+//     char target[] = "hello"; 
+//     int target_i = 0; 
+//     scanf("%s", s);
+//     for (int i = 0; s[i]; i++) s[i] = tolower(s[i]);
+//     for (int i = 0; s[i]; i++){
+//         if (s[i] == target[target_i]){
+//             target_i++;
+//         }
+//         if (target_i == 5){
+//             break;
+//         }
+//     }
+
+//     if (target_i == 5){
+//         printf("YES");
+//     } else {
+//         printf("NO");
+//     }
+
+//     return 0;
+// }
+
+// 
