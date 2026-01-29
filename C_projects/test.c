@@ -329,4 +329,95 @@
 //     return 0;
 // }
 
+// 160A - Twins
+// #include <stdio.h>
+// #include <stdlib.h>
+// int compare(const int* a, const int* b){
+//     return *(int*)b -*(int*)a;
+// }
+// int main(){
+//     int n;
+//     int coins[100], total = 0;
+//     scanf("%d", &n);
+
+//     for (int i = 0; i < n; i++){
+//         scanf("%d", &coins[i]);
+//         total += coins[i];
+//     }
+
+//     qsort(coins, n, sizeof(int), compare);
+
+//     int mySum = 0, count = 0;
+
+//     for (int i = 0; i < n; i++){
+//         mySum += coins[i];
+//         count++;
+//         if (mySum > total - mySum){
+//             printf("%d", count);
+//             break;
+//         }
+//     }
+//     return 0;
+// }
+
+// 479A - Expression
+// #include <stdio.h>
+// int main(){
+//     int a, b, c;
+//     scanf("%d", &a);
+//     scanf("%d", &b);
+//     scanf("%d", &c);
+
+//     int array[6], max;
+
+//     array[0] = a + b + c;
+//     array[1] = a + b * c;
+//     array[2] = a * b + c;
+//     array[3] = a * b * c;
+//     array[4] = (a + b) * c;
+//     array[5] = a * (b + c);
+
+//     max = array[0];
+
+//     for (int i = 0; i < 6; i++){
+//         if (array[i] > max){
+//             max = array[i];
+//         }
+//     }
+//     printf("%d", max);
+//     return 0;
+// }
+
+// 133A - HQ9+
+// #include <stdio.h>
+// #include <string.h>
+// int main(){
+//     char p[100];
+//     scanf("%s", p);
+
+//     for (int i = 0; i < strlen(p); i++){
+//         if (p[i] == 'H'||p[i] == 'Q'||p[i] == '9'){
+//             printf("YES");
+//             return 0;
+//         } 
+//     }
+
+//     printf("NO");
+//     return 0;
+// }
+
+// 318A - Even Odds
+// #include <stdio.h>
+// int main(){
+//     long long n, k;
+//     scanf("%lld %lld", &n, &k);
+//     long long odd = (n + 1) / 2;
+//     if (k <= odd){
+//         printf("%lld", 2 * k -1);
+//     } else {
+//         printf("%lld", 2* (k - odd));
+//     }
+//     return 0;
+// }
+
 // 
