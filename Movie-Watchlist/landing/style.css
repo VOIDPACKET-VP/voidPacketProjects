@@ -1,0 +1,233 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --light: #ebf2fa;
+    --dark: #0b0e1a;
+    --secondary: #2e3354;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;              
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    height: 100vh;             
+    display: flex;             
+    flex-direction: column;    
+    overflow: hidden;
+}
+
+/* hero section */
+.header-section {
+    padding: 7em;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: url("/Movie-Watchlist/assets/andre-tan-THJJRUhNlEc-unsplash.jpg");
+    background-blend-mode: darken;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    color: var(--light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;            
+    position: relative;        
+    z-index: 0;                
+}
+
+.header-section h1 {
+    font-weight: 700;
+    font-size: clamp(2rem, 7vw, 3rem);
+}
+
+#watchlist-btn {
+    font-weight: 400;
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    cursor: pointer;
+}
+
+/* search bar */
+.search-bar {
+    padding: 0 5em;
+    display: flex;
+    justify-content: center;
+    min-width: 200px;
+    flex-shrink: 0;            
+    position: relative;        
+    z-index: 1;                
+}
+
+.form-section {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    height: 52px;
+    width: 100%;
+    max-width: 700px;
+    margin-top: -26px;
+    padding: 0;
+}
+
+.input-part {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    padding: 0 16px;
+}
+
+#site-search {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+    color: var(--dark);
+    background: transparent;
+}
+
+.submit-btn {
+    border: none;
+    border-left: 1px solid #e0e0e0;
+    padding: 0 20px;
+    height: 100%;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--secondary);
+    background: white;
+    cursor: pointer;
+}
+
+.submit-btn:hover { background: #f5f5f5; }
+
+/* content section */
+.content-section {
+    flex: 1;                   
+    overflow-y: auto;          
+    display: flex;
+    align-items: center;       
+    justify-content: center;
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+.initial-state {
+    opacity: 0.7;
+    font-size: clamp(1rem, 5vw, 3rem);
+    text-align: center;
+}
+
+/* movie cards */
+.movie-list {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em 5em;
+    width: 100%;               
+    align-self: flex-start;    
+}
+
+.movie-card {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.movie-card:last-child { border-bottom: none; }
+
+.poster {
+    width: 90px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.star { color: #f5a623; }
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.runtime,
+.genres {
+    font-size: 0.82rem;
+    color: #666;
+}
+
+.watchlist-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--dark);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}
+
+.watchlist-btn:hover { opacity: 0.7; }
+
+.desc {
+    font-size: 0.85rem;
+    color: #444;
+    line-height: 1.65;
+    margin-top: 2px;
+}
+
+.read-more {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dark);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}

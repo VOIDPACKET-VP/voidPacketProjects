@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Watch List</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="header-section">
+            <h1>Find your film</h1>
+            <a id="watchlist-btn">
+                <div>My watchlist</div>
+            </a>
+        </div>
+
+        <div class="search-bar">
+            <search>
+                <form class="form-section" id="search-form">
+                    <div class="input-part">
+                        <label for="site-search">
+                            <i class="fa-brands fa-sistrix"></i>
+                        </label>
+                        <input type="search" id="site-search" name="q" placeholder="e.g. Blade Runner">
+                    </div>
+                    <button class="submit-btn" type="submit">Search</button>
+                </form>
+            </search>
+        </div>
+
+        <div class="content-section" id="content-result">
+            <div class="initial-state">
+                <i class="fa-solid fa-film"></i>
+                <div>Start exploring</div>
+            </div>
+        </div>
+        <script src="script.js" type="module"></script>
+    </body>
+
+</html>
