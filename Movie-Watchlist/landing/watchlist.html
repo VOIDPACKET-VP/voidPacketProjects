@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Find-movie</title>
+        <title>Watch-List</title>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,30 +12,16 @@
 
     <body>
         <div class="header-section">
-            <h1>Find your film</h1>
-            <a id="watchlist-btn" href="watchlist.html">
-                <div>My watchlist</div>
+            <h1>My Watchlist</h1>
+            <a href="index.html" id="watchlist-btn">
+                <div>Search for movies</div>
             </a>
-        </div>
-
-        <div class="search-bar">
-            <search>
-                <form class="form-section" id="search-form">
-                    <div class="input-part">
-                        <label for="site-search">
-                            <i class="fa-brands fa-sistrix"></i>
-                        </label>
-                        <input type="search" id="site-search" name="q" placeholder="e.g. Blade Runner">
-                    </div>
-                    <button class="submit-btn" type="submit">Search</button>
-                </form>
-            </search>
         </div>
 
         <div class="content-section" id="content-result">
             <div class="initial-state">
-                <i class="fa-solid fa-film"></i>
-                <div>Start exploring</div>
+                <div>Your watchlist is looking a litlle empty...</div>
+                <a class="add-movies" href="index.html"><i class="fa-light fa-circle-plus"></i>Let's add some movies</a>
             </div>
         </div>
         <script src="script.js" type="module"></script>
