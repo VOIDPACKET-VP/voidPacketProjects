@@ -1,5 +1,5 @@
 
-import CONFIG from "./config"
+// import CONFIG from "./config"
 
 const searchForm = document.getElementById('search-form')
 const inputValue = document.getElementById('site-search')
@@ -11,10 +11,10 @@ searchForm.addEventListener('submit', async (e) => {
 
     try {
         
-        const response = await fetch(`${CONFIG.BASE_URL}?s=${inputValue.value}&apikey=${CONFIG.API_KEY}`)
+        const response = await fetch(`http://www.omdbapi.com/?s=${inputValue.value}&apikey=ba93aa67`)
         const data = await response.json()
                 
-        if (data.Response === 'False') {
+        if (data.Response === false) {
             content.innerHTML = `
                 <div class="initial-state">
                     Unable to find what you're looking for<br>Please try another search.
@@ -47,7 +47,7 @@ searchForm.addEventListener('submit', async (e) => {
                 <div class="meta">
                     <span class="runtime">${movie.Runtime}</span>
                     <span class="genres">${movie.Genre}</span>
-                    <button class="watchlist-btn" data-id="${movie.imdbID}">
+                    <button id="add-movie-btn" class="watchlist-btn" data-id="${movie.imdbID}">
                         Watchlist
                     </button>
                 </div>
@@ -67,3 +67,4 @@ searchForm.addEventListener('submit', async (e) => {
         `
     }
 })
+

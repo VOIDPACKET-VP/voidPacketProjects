@@ -10,22 +10,30 @@
 
     <body>
         <div class="header">
-            <img src="assets/worldmap.png" alt="World map as a header background">
-            <img src="assets/parrot.png" alt="Multi colored Parrot">
-            <h1>PollyGlot<br><span>Perfect Translation Every Time</span></h1>
+            <div class="logo">
+                <img src="assets/parrot.png" alt="Multi colored Parrot">
+                <h1>PollyGlot<br><span>Perfect Translation Every Time</span></h1>
+            </div>    
         </div>
 
         <main>
-            <form>
+            <form class="form-section" id="form-section-id">
                 <label for="text-to-translate">Text to translate</label>
-                <input id="text-to-translate" type="submit" required value="Translate">
+                <textarea class="translation-area" id="text-to-translate" required></textarea>
+                <p class="language-header">Select a Language:</p> 
                 <ul class="language-list">
-                    <li><a>Spanish</a><img src="assets/sp-flag.png"></li>
-                    <li><a>Japanese</a><img src="assets/jpn-flag.png"></li>
-                    <li><a>French</a><img src="assets/fr-flag.png"></li>
+                    <li data-lang="spanish"><a>Spanish</a><img src="assets/sp-flag.png"></li>
+                    <li data-lang="japanese"><a>Japanese</a><img src="assets/jpn-flag.png"></li>
+                    <li data-lang="french"><a>French</a><img src="assets/fr-flag.png"></li>
                 </ul>
-                
+                <input class="translate-btn" type="submit" value="Translate">
             </form>
+            <div class="response hidden" id="answer"> 
+                <p class="language-header">Your translation:</p>
+                <div id="translated-answer" class="translation-area"></div>
+                <button id="restart-btn" class="translate-btn">Start Over</button>
+            </div>
+
         </main>
 
         <script src="script.js" type="module"></script>
