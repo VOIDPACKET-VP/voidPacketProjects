@@ -1,6 +1,3 @@
-- Serve All static files
-- Update the front end with live prices
-- Log user purchases to a text file
 - Generate a pdf with the transactions detail
 - Email a response comfirming the purchase
     - You can use NPM for the last two 
