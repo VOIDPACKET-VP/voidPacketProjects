@@ -1,0 +1,76 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+    background-color: #1A1B21;
+    color: aliceblue;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.header img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.content {
+  margin-top: 1.5em;
+  
+}
+
+.intro {
+  text-align: center;
+  padding: 1em;
+}
+.intro > h2 {
+  margin-bottom: 0.5em;
+}
+
+.intro > h3 {
+  color: #F3BF99;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.email-btn {
+  border: none;
+  padding: 0.8em 7.5em;
+  background-color: aliceblue;
+  color: #1A1B21;
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: 2px;
+}
+
+.email-btn:hover {
+  cursor: pointer;
+  background-color: lab(49.27% 0.21 -0.56);
+
+}
+
+.about {
+  margin: 1em;
+}
+
+.interests {
+  margin: 1em 1em 2em 1em;
+}
+
+.more {
+  margin-left: 1em;
+  max-width: 650px;
+}
+
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #161619;
+}
